@@ -8,6 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +22,11 @@ public class TSSP extends JFrame{
     Panel panel;
     
     public TSSP(){
-        panel = new Panel();
+        try {
+            panel = new Panel();
+        } catch (SQLException ex) {
+            Logger.getLogger(TSSP.class.getName()).log(Level.SEVERE, null, ex);
+        }
         getContentPane().add(panel);
         setExtendedState(Frame.MAXIMIZED_BOTH);
     }
