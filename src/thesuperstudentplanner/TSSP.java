@@ -34,11 +34,11 @@ public class TSSP extends JFrame{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        TSSP frame = new TSSP();
-        frame.setTitle("The Super Student Planner");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
+//    public static void main(String[] args) {
+////        TSSP frame = new TSSP();
+////        frame.setTitle("The Super Student Planner");
+////        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+////        frame.set(true);
+//    }
     
 }
