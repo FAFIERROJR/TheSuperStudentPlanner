@@ -23,6 +23,24 @@ public abstract class User {
      *
      */
     public User(){}
+     
+    public String getID(){
+        return id;
+    }
+   
+    public void setID(String id){
+        this.id = id;
+    }
+    
+    public void setClasses(ArrayList<String> c){
+        classes = null;
+        for(String s : c){
+            classes.add(s);
+        }
+    }
+    
+    
+    
     
     /**
      *
