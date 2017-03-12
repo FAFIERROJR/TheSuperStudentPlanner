@@ -31,22 +31,26 @@ public class Student extends User{
      */
  
     @Override
-    public boolean makeAppt(Connection conn, String title, String desc, String date, String startTime, String endTime){
+    public boolean makeAppt(Connection conn, Appointment app){
         try {
             Statement stmt = conn.createStatement();
+            
+            String cmd = "INSERT INTO appointments "
+                + "VALUES ("
+                + getID() + ", '"
+                + app.getTitle() + "', '"
+                + app.getDay() + "', '"
+                + app.getDate() + "', '"
+                + app.getStartTime() + "', '"
+                + app.getEndTime() + "');";
+        
+            stmt.execute(cmd);
+            return true;
+       
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        String cmd = "INSERT INTO appointments"
-                + "VALUES ("
-                + getID() + ", "
-                + title + ", "
-                + desc + ", "
-                + date + ", "
-                + startTime + ", "
-                + endTime + ");";
-        
-        return true;
     }
             
     /**
@@ -60,22 +64,26 @@ public class Student extends User{
      * @return
      */
     @Override
-    public boolean changeAppt(Connection conn, String title, String desc, String date, String startTime, String endTime){
+    public boolean changeAppt(Connection conn, Appointment newApp, Appointment oldApp){
         try {
             Statement stmt = conn.createStatement();
+            
+            String cmd = "UPDATE appointments "
+                + "SET "
+                + "SID = '" + newApp.getID() + "', "
+                + "TITLE = '" newApp.getTitle() + "', "
+                + " = app.getDay() + ", "
+                + app.getDate() + ", "
+                + app.getStartTime() + ", "
+                + app.getEndTime() + ");";
+            
+            stmt.execute(cmd);
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        String cmd = "INSERT INTO appointments"
-                + "VALUES ("
-                + getID() + ", "
-                + title + ", "
-                + desc + ", "
-                + date + ", "
-                + startTime + ", "
-                + endTime + ");";
-        
-        return true;
+  
     }
     
     /**
@@ -87,20 +95,38 @@ public class Student extends User{
      * @return
      */
     @Override
-    public  boolean getCalendarRange(Connection conn, String startDate, String endDate, String className){
+    public  ArrayList<Appointment> getCalendarRange(Connection conn, String startDate, String endDate, String className){
         try {
             Statement stmt = conn.createStatement();
+            
+            String cmd = "SELECT * "
+                + "FROM appointments "
+                + "WHERE "
+                + "SID = " + getID() + " AND "
+                + "DATE >= '" + startDate + "' AND "
+                + "ENDDATE <= '" + endDate + "' AND"
+                + "CLASS = '" + className + "' ";
+        
+            ResultSet rs = stmt.executeQuery(cmd);
+            
+            ArrayList<Appointment> apps = new ArrayList<Appointment>();
+            
+            do{
+                apps.add(new Appointment(
+                    rs.getString("SID"),
+                    rs.getString("TITLE"),
+                    rs.getString("DAY"),
+                    rs.getString("DATE"),
+                    rs.getString("STARTTIME"),
+                    rs.getString("ENDTIME")
+                ));
+            return apps;
+            }while(rs.next());
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String cmd = "INSERT INTO appointments"
-                + "VALUES ("
-                + getID() + ", "
-                + startDate + ", "
-                + endDate+ ", "
-                + className + ", ";
         
-        return true;
+        return null;
     }
     
     /**
@@ -114,16 +140,25 @@ public class Student extends User{
     public  boolean changePassword(Connection conn, String oldPassword, String newPassword){
         try {
             Statement stmt = conn.createStatement();
+            
+            String query = "SELECT password "
+                    + "FROM STUDENTS "
+                    + "WHERE SID = " + getID();
+            
+            ResultSet rs = stmt.executeQuery(query);
+            
+            if(rs.getString("PASSWORD") == oldPassword){
+                query = "UPDATE students "
+                        + "SET password = '" + newPassword + "' "
+                        + "WHERE SID =" + getID() + "";
+            }
+            
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String cmd = "INSERT INTO appointments"
-                + "VALUES ("
-                + getID() + ", "
-                + oldPassword + ", "
-                + newPassword + ", ";
         
-        return true;
+        return false;
     }
     
     /**
