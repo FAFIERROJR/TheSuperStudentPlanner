@@ -24,14 +24,26 @@ public abstract class User {
      */
     public User(){}
      
+    /**
+     *
+     * @return
+     */
     public String getID(){
-        return id;
+        return String.format("'%s'", id);
     }
    
+    /**
+     *
+     * @param id
+     */
     public void setID(String id){
         this.id = id;
     }
     
+    /**
+     *
+     * @param c
+     */
     public void setClasses(ArrayList<String> c){
         classes = null;
         for(String s : c){
@@ -45,26 +57,18 @@ public abstract class User {
     /**
      *
      * @param conn          the connection to the database
-     * @param title         the title of the appointment
-     * @param desc          description of the appointment
-     * @param date          date of appointment
-     * @param startTime     time appt starts
-     * @param endTime       time appt ends
+     * @param app           Appointment object
      * @return
      */
-    public abstract boolean makeAppt(Connection conn, String title, String desc, String date, String startTime, String endTime);
+    public abstract boolean makeAppt(Connection conn, Appointment app);
             
     /**
      *
      * @param conn          the connection to the database
-     * @param title         the title of the appointment
-     * @param desc          description of the appointment
-     * @param date          date of appointment
-     * @param startTime     time appt starts
-     * @param endTime       time appt ends
+     * @param app           Appointment object
      * @return
      */
-    public abstract boolean changeAppt(Connection conn, String title, String desc, String date, String startTime, String endTime);
+    public abstract boolean changeAppt(Connection conn, Appointment newApp, Appointment oldApp);
     
     /**
      *
@@ -74,7 +78,7 @@ public abstract class User {
      * @param className     name of class to limit to (optional)
      * @return
      */
-    public abstract boolean getCalendarRange(Connection conn, String startDate, String endDate, String className);
+    public abstract ArrayList<Appointment> getCalendarRange(Connection conn, String startDate, String endDate, String className);
     
     /**
      *

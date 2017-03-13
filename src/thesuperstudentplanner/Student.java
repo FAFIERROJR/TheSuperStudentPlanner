@@ -19,6 +19,16 @@ public class Student extends User{
     
     public Student(){}
     
+    
+    public Student(String id){
+        setID(id);
+    }
+    
+    public Student(String id, ArrayList<String> cls){
+        setID(id);
+        setClasses(cls);
+    }
+    
     /**
      *
      * @param conn          the connection to the database
@@ -37,7 +47,7 @@ public class Student extends User{
             
             String cmd = "INSERT INTO appointments "
                 + "VALUES ("
-                + getID() + ", '"
+                + app.getID() + ", '"
                 + app.getTitle() + "', '"
                 + app.getDay() + "', '"
                 + app.getDate() + "', '"
@@ -69,13 +79,18 @@ public class Student extends User{
             Statement stmt = conn.createStatement();
             
             String cmd = "UPDATE appointments "
-                + "SET "
-                + "SID = '" + newApp.getID() + "', "
-                + "TITLE = '" newApp.getTitle() + "', "
-                + " = app.getDay() + ", "
-                + app.getDate() + ", "
-                + app.getStartTime() + ", "
-                + app.getEndTime() + ");";
+                    + "SET "
+                    + "SID = '" + newApp.getID() + "', "
+                    + "TITLE = '" + newApp.getTitle() + "', "
+                    + "DAY = '" + newApp.getDay() + "', "
+                    + "DATE = '" + newApp.getDate() + "', "
+                    + "STARTTIME = '" + newApp.getStartTime() + "', "
+                    + "ENDTIME = '" + newApp.getEndTime() + "') "
+                    + "WHERE "
+                    + "SID = '" + oldApp.getID() + "', "
+                    + "DATE = '" + oldApp.getDate() + "', "
+                    + "STARTTIME = '" + oldApp.getStartTime() + "', "
+                    + "ENDTIME = '" + oldApp.getEndTime() + "';";
             
             stmt.execute(cmd);
             return true;
@@ -104,8 +119,7 @@ public class Student extends User{
                 + "WHERE "
                 + "SID = " + getID() + " AND "
                 + "DATE >= '" + startDate + "' AND "
-                + "ENDDATE <= '" + endDate + "' AND"
-                + "CLASS = '" + className + "' ";
+                + "ENDDATE <= '" + endDate + "' AND";
         
             ResultSet rs = stmt.executeQuery(cmd);
             

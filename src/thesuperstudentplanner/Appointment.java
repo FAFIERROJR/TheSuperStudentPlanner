@@ -7,54 +7,132 @@ package thesuperstudentplanner;
 
 /**
  *
- * @author Francisco
+ * @author Dania Wareh
+ * @author Francisco Fierro
  */
 public class Appointment {
     
     private String dayOfWeek; //day of the week "Monday, Tuesday, etc.." 
-    private int day; //day of the month in integer 
-    private int hour; //hour of the appointment
-    private int minute;
+    private String sid; //student id
+    private int day; //day of month as int
+    private int month; //month as int
+    private int year;
+    private int sHour; //start hour of the appointment
+    private int sMinute; //start minute of the appointment
+    private int eHour;
+    private int eMinute;
     private String title;
     
-    public String getDayOfWeek(){
+    public Appointment(){}
+    
+    public Appointment(String id, String t, String dw, int d, int m, int y, int sh,
+            int sm, int eh, int em){
+        
+        sid = id;
+        title = t;
+        dayOfWeek = dw;
+        day = d;
+        month = m;
+        year = y;
+        sHour = sh;
+        sMinute = sm;
+        eHour = eh;
+        eMinute = em;   
+    }
+    
+    public Appointment(String id, String t, String dw, String dt, String st, String et){
+        sid = id;
+        title = t;
+        dayOfWeek = dw;
+        String dateArr[] = dt.split("-");
+        int year = Integer.parseInt(dateArr[0]);
+        int month = Integer.parseInt(dateArr[1]);
+        int day = Integer.parseInt(dateArr[2]);
+        String sTimeArr[] = st.split(":");
+        int sHour = Integer.parseInt(sTimeArr[0]);
+        int sMinute = Integer.parseInt(sTimeArr[1]);
+        String eTimeArr[] = et.split(":");
+        int eHour = Integer.parseInt(eTimeArr[0]);
+        int eMinute = Integer.parseInt(eTimeArr[1]);
+    }
+    
+    
+    public String getID(){
+        return sid;
+    }
+    public String getDay(){
         return dayOfWeek;
     }
     
-    public int getDay(){
-        return day;
+    public String getDate(){
+        return String.format("%02d-%02d-%02d", year, month, day);
     }
     
-    public int getHour(){
-        return hour;
+    public int getSHour(){
+        return sHour;
     }
     
-    public int getMinute(){
-        return minute;
+    public int getSMinute(){
+        return sMinute;
+    }
+    
+    public String getStartTime(){
+        return String.format("%02d:%02d", sHour, sMinute);
+    }
+    
+    public String getEndTime(){
+        return String.format("%02d:%02d", eHour, eMinute);
+    }
+    
+    public int getEHour(){
+        return eHour;
+    }
+    
+    public int getEMinute(){
+        return eMinute;
     }
     
     public String getTitle(){
         return title;
     }
     
-      public void setDayOfWeek(String dw){
+      public void setDay(String dw){
         dayOfWeek = dw;
     }
     
     public void setDay(int d){
-        day = d;
+        day= d;
     }
     
-    public void setHour(int h){
-        hour = h;
+    public void setMonth(int m){
+        month = m;
     }
     
-    public void setMinute(int m){
-        minute = m;
+    public void setYear(int y){
+        year = y;
+    }
+    public void setSHour(int h){
+        sHour = h;
+    }
+    
+    public void setSMinute(int m){
+        sMinute = m;
+    }
+    
+    public void setEHour(int h){
+        eHour = h;
+    }
+    
+    public void setEMinute(int m){
+        eMinute = m;
     }
     
     public void setTitle(String t){
         title = t;
+    }
+    
+    public void setID(String id){
+        sid = id;
     }
 
     
