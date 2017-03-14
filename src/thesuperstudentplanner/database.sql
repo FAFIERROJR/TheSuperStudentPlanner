@@ -1,3 +1,5 @@
+--TEST
+
 CREATE TABLE Appointments (
 SID char (9) NOT NULL,
 TITLE varchar (30) NOT NULL,
