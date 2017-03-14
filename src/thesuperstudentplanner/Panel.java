@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  * @author Francisco
  */
 public class Panel extends JPanel implements ActionListener {
+    
     public Panel() throws SQLException{
         addActionListener(this);
         this.setBackground(Color.BLACK);
@@ -45,6 +46,9 @@ public class Panel extends JPanel implements ActionListener {
                 }
             }
         };
+        
+       
+
         thread.start();
     }
 
