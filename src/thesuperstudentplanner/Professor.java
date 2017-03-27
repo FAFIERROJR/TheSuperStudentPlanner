@@ -43,7 +43,7 @@ public class Professor extends User{
                 + app.getDay() + "', '"
                 + app.getDate() + "', '"
                 + app.getStartTime() + "', '"
-                + app.getEndTime() + "');";
+                + app.getEndTime() + "')";
         
             stmt.execute(cmd);
             return true;
@@ -71,17 +71,17 @@ public class Professor extends User{
             
             String cmd = "UPDATE appointments "
                     + "SET "
-                    + "SID = '" + newApp.getID() + "', "
+//                    + "SID = '" + newApp.getID() + "', "
                     + "TITLE = '" + newApp.getTitle() + "', "
                     + "DAY = '" + newApp.getDay() + "', "
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
                     + "ENDTIME = '" + newApp.getEndTime() + "') "
                     + "WHERE "
-                    + "SID = '" + oldApp.getID() + "', "
+//                    + "SID = '" + oldApp.getID() + "', "
                     + "DATE = '" + oldApp.getDate() + "', "
                     + "STARTTIME = '" + oldApp.getStartTime() + "', "
-                    + "ENDTIME = '" + oldApp.getEndTime() + "';";
+                    + "ENDTIME = '" + oldApp.getEndTime() + "'";
             
             stmt.execute(cmd);
             return true;
@@ -109,8 +109,8 @@ public class Professor extends User{
                 + "FROM appointments "
                 + "WHERE "
                 + "DATE >= '" + startDate + "' AND "
-                + "ENDDATE <= '" + endDate + "' AND"
-                + "title = '" + className + "' ";
+                + "ENDDATE <= '" + endDate + "'";
+//                + "title = '" + className + "' ";
         
             ResultSet rs = stmt.executeQuery(cmd);
             
@@ -182,7 +182,7 @@ public class Professor extends User{
             String query = "INSERT INTO students "
                     + "values ('"
                     + id + "', '"
-                    + name +  "';";
+                    + name +  "'";
             
             stmt.execute(query);
             
