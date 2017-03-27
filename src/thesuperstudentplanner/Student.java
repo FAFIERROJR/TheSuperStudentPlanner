@@ -52,7 +52,7 @@ public class Student extends User{
                 + app.getDay() + "', '"
                 + app.getDate() + "', '"
                 + app.getStartTime() + "', '"
-                + app.getEndTime() + "');";
+                + app.getEndTime() + "')";
         
             stmt.execute(cmd);
             return true;
@@ -90,7 +90,7 @@ public class Student extends User{
                     + "SID = '" + oldApp.getID() + "', "
                     + "DATE = '" + oldApp.getDate() + "', "
                     + "STARTTIME = '" + oldApp.getStartTime() + "', "
-                    + "ENDTIME = '" + oldApp.getEndTime() + "';";
+                    + "ENDTIME = '" + oldApp.getEndTime() + "'";
             
             stmt.execute(cmd);
             return true;
