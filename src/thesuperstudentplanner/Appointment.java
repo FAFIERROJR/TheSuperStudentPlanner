@@ -13,7 +13,7 @@ package thesuperstudentplanner;
 public class Appointment {
     
     private String dayOfWeek; //day of the week "Monday, Tuesday, etc.." 
-    private String sid; //student id
+    private String username; //student id
     private int day; //day of month as int
     private int month; //month as int
     private int year;
@@ -28,7 +28,7 @@ public class Appointment {
     public Appointment(String id, String t, String dw, int d, int m, int y, int sh,
             int sm, int eh, int em){
         
-        sid = id;
+        username = id;
         title = t;
         dayOfWeek = dw;
         day = d;
@@ -41,7 +41,7 @@ public class Appointment {
     }
     
     public Appointment(String id, String t, String dw, String dt, String st, String et){
-        sid = id;
+        username = id;
         title = t;
         dayOfWeek = dw;
         String dateArr[] = dt.split("-");
@@ -55,12 +55,23 @@ public class Appointment {
         int eHour = Integer.parseInt(eTimeArr[0]);
         int eMinute = Integer.parseInt(eTimeArr[1]);
     }
-    
-    
-    public String getID(){
-        return sid;
+   
+    public int getYear(){
+        return year;
     }
-    public String getDay(){
+    
+    public int getMonth(){
+        return month;
+    }
+    
+    public int getDay(){
+        return day;
+    }
+    
+    public String getUsername(){
+        return username;
+    }
+    public String getDayofWeek(){
         return dayOfWeek;
     }
     
@@ -103,7 +114,6 @@ public class Appointment {
     public void setDay(int d){
         day= d;
     }
-    
     public void setMonth(int m){
         month = m;
     }
@@ -131,8 +141,8 @@ public class Appointment {
         title = t;
     }
     
-    public void setID(String id){
-        sid = id;
+    public void setUsername(String id){
+        username = id;
     }
 
     
