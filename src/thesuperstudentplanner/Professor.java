@@ -20,12 +20,12 @@ import java.util.logging.Logger;
 public class Professor extends User{
     public Professor(){}
     
-    public Professor(String id){
-        setID(id);
+    public Professor(String username){
+        setUsername(username);
     }
     
-    public Professor(String id, ArrayList<String> cls){
-        setID(id);
+    public Professor(String username, ArrayList<String> cls){
+        setUsername(username);
         setClasses(cls);
         
     }
@@ -38,7 +38,7 @@ public class Professor extends User{
             
             String cmd = "INSERT INTO appointments "
                 + "VALUES ("
-                + app.getID() + ", '"
+                + app.getUsername() + ", '"
                 + app.getTitle() + "', '"
                 + app.getDay() + "', '"
                 + app.getDate() + "', '"
@@ -71,14 +71,14 @@ public class Professor extends User{
             
             String cmd = "UPDATE appointments "
                     + "SET "
-//                    + "SID = '" + newApp.getID() + "', "
+//                    + "STUDENTUSERNAME = '" + newApp.getUsername() + "', "
                     + "TITLE = '" + newApp.getTitle() + "', "
                     + "DAY = '" + newApp.getDay() + "', "
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
                     + "ENDTIME = '" + newApp.getEndTime() + "') "
                     + "WHERE "
-//                    + "SID = '" + oldApp.getID() + "', "
+//                    + "STUDENTUSERNAME = '" + oldApp.getUsername() + "', "
                     + "DATE = '" + oldApp.getDate() + "', "
                     + "STARTTIME = '" + oldApp.getStartTime() + "', "
                     + "ENDTIME = '" + oldApp.getEndTime() + "'";
@@ -148,14 +148,14 @@ public class Professor extends User{
             
             String query = "SELECT password "
                     + "FROM STUDENTS "
-                    + "WHERE SID = " + getID();
+                    + "WHERE PROFUSERNAME = " + getUsername();
             
             ResultSet rs = stmt.executeQuery(query);
             
             if(rs.getString("PASSWORD") == oldPassword){
-                query = "UPDATE students "
+                query = "UPDATE professors "
                         + "SET password = '" + newPassword + "' "
-                        + "WHERE SID =" + getID() + "";
+                        + "WHERE PROFUSERNAME =" + getUsername() + "";
             }
             
             return true;
@@ -170,18 +170,18 @@ public class Professor extends User{
      *
      * @param conn              connection to database
      * @param name              name of account owner
-     * @param ID                school ID of account owner
+     * @param username                school Username of account owner
      * @param newClasses        classes of new account owner
      * @return
      */
     @Override
-    public  boolean createAccount(Connection conn, String name, String id, ArrayList<String> newClasses){
+    public  boolean createAccount(Connection conn, String name, String username, ArrayList<String> newClasses){
         try {
             Statement stmt = conn.createStatement();
             
             String query = "INSERT INTO students "
                     + "values ('"
-                    + id + "', '"
+                    + username + "', '"
                     + name +  "'";
             
             stmt.execute(query);

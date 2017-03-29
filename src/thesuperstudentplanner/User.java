@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public abstract class User {
     private ArrayList<String> classes;
-    private String id;
+    private String username;
     
     /**
      *
@@ -28,16 +28,16 @@ public abstract class User {
      *
      * @return
      */
-    public String getID(){
-        return String.format("'%s'", id);
+    public String getUsername(){
+        return String.format("'%s'", username);
     }
    
     /**
      *
-     * @param id
+     * @param username
      */
-    public void setID(String id){
-        this.id = id;
+    public void setUsername(String username){
+        this.username = username;
     }
     
     /**
@@ -93,11 +93,11 @@ public abstract class User {
      *
      * @param conn              connection to database
      * @param name              name of account owner
-     * @param ID                school ID of account owner
+     * @param Username              Username of account owner
      * @param newClasses        classes of new account owner
      * @return
      */
-    public abstract boolean createAccount(Connection conn, String name, String ID, ArrayList<String> newClasses);
+    public abstract boolean createAccount(Connection conn, String name, String username, ArrayList<String> newClasses);
     
     
 }

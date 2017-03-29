@@ -20,12 +20,12 @@ public class Student extends User{
     public Student(){}
     
     
-    public Student(String id){
-        setID(id);
+    public Student(String username){
+        setUsername(username);
     }
     
-    public Student(String id, ArrayList<String> cls){
-        setID(id);
+    public Student(String username, ArrayList<String> cls){
+        setUsername(username);
         setClasses(cls);
     }
     
@@ -47,7 +47,7 @@ public class Student extends User{
             
             String cmd = "INSERT INTO appointments "
                 + "VALUES ("
-                + app.getID() + ", '"
+                + app.getUsername() + ", '"
                 + app.getTitle() + "', '"
                 + app.getDay() + "', '"
                 + app.getDate() + "', '"
@@ -80,14 +80,14 @@ public class Student extends User{
             
             String cmd = "UPDATE appointments "
                     + "SET "
-                    + "SID = '" + newApp.getID() + "', "
+                    + "studentusername = '" + newApp.getUsername() + "', "
                     + "TITLE = '" + newApp.getTitle() + "', "
                     + "DAY = '" + newApp.getDay() + "', "
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
                     + "ENDTIME = '" + newApp.getEndTime() + "') "
                     + "WHERE "
-                    + "SID = '" + oldApp.getID() + "', "
+                    + "STUDENTUSERNAME = '" + oldApp.getUsername() + "', "
                     + "DATE = '" + oldApp.getDate() + "', "
                     + "STARTTIME = '" + oldApp.getStartTime() + "', "
                     + "ENDTIME = '" + oldApp.getEndTime() + "'";
@@ -117,7 +117,7 @@ public class Student extends User{
             String cmd = "SELECT * "
                 + "FROM appointments "
                 + "WHERE "
-                + "SID = " + getID() + " AND "
+                + "STUDENTUSERNAME = " + getUsername() + " AND "
                 + "DATE >= '" + startDate + "' AND "
                 + "ENDDATE <= '" + endDate + "' AND";
         
@@ -127,7 +127,7 @@ public class Student extends User{
             
             do{
                 apps.add(new Appointment(
-                    rs.getString("SID"),
+                    rs.getString("STUDENTUSERNAME"),
                     rs.getString("TITLE"),
                     rs.getString("DAY"),
                     rs.getString("DATE"),
@@ -157,14 +157,14 @@ public class Student extends User{
             
             String query = "SELECT password "
                     + "FROM STUDENTS "
-                    + "WHERE SID = " + getID();
+                    + "WHERE STUDENTUSERNAME = " + getUsername();
             
             ResultSet rs = stmt.executeQuery(query);
             
             if(rs.getString("PASSWORD") == oldPassword){
                 query = "UPDATE students "
                         + "SET password = '" + newPassword + "' "
-                        + "WHERE SID =" + getID() + "";
+                        + "WHERE STUDENTUSERNAME =" + getUsername() + "";
             }
             
             return true;
@@ -179,12 +179,12 @@ public class Student extends User{
      *
      * @param conn              connection to database
      * @param name              name of account owner
-     * @param ID                school ID of account owner
+     * @param username          Username of account owner
      * @param newClasses        classes of new account owner
      * @return
      */
     @Override
-    public  boolean createAccount(Connection conn, String name, String ID, ArrayList<String> newClasses){
+    public  boolean createAccount(Connection conn, String name, String username, ArrayList<String> newClasses){
         System.out.println("No!...Stop it!");
         return false;
     }

@@ -4,6 +4,7 @@
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="loginDialog">
       <Properties>
+        <Property name="defaultCloseOperation" type="int" value="0"/>
         <Property name="title" type="java.lang.String" value="Login to The Super Student Planner"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -40,16 +41,16 @@
                       </Group>
                       <EmptySpace pref="60" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField2" max="32767" attributes="0"/>
-                          <Component id="jPasswordField1" pref="134" max="32767" attributes="0"/>
+                          <Component id="textLoginUsername" max="32767" attributes="0"/>
+                          <Component id="textLoginPassword" pref="134" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonLoginExit" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonLoginLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -59,18 +60,18 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="85" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textLoginUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jPasswordField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="textLoginPassword" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonLoginExit" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonLoginLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -78,17 +79,17 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            <Component class="javax.swing.JPasswordField" name="textLoginPassword">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="textLoginUsername">
               <Properties>
                 <Property name="text" type="java.lang.String" value="[JaneDoe]"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textLoginUsernameActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -101,15 +102,21 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="buttonLoginExit">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sign Up"/>
+                <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLoginExitActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="buttonLoginLogin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLoginLoginActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -416,21 +423,6 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTextField6" min="-2" pref="178" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTextField7" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField8" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField9" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace pref="74" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
@@ -441,14 +433,14 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbMakeAppointmentStartAM" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbMakeAppointmentStartPM" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField10" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="textMakeAppointmentStartHour" min="-2" pref="50" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField11" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="textMakeAppointmentStartMinute" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -460,18 +452,40 @@
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField12" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="textMakeAppointmentEndHour" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField13" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="textMakeAppointmentEndMinute" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbMakeAppointmentEndAM" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="textMakeAppointmentTitle" min="-2" pref="178" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="textMakeAppointmentMonth" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="textMakeAppointmentDay" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="textMakeAppointmentYear" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="buttonMakeAppointmentCancel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="buttonMakeAppointmentMake" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -481,11 +495,11 @@
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textMakeAppointmentTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textMakeAppointmentMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textMakeAppointmentYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textMakeAppointmentDay" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -493,31 +507,36 @@
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textMakeAppointmentStartHour" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textMakeAppointmentStartMinute" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textMakeAppointmentEndHour" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textMakeAppointmentEndMinute" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbMakeAppointmentEndAM" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbMakeAppointmentStartAM" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbMakeAppointmentStartPM" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="buttonMakeAppointmentMake" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonMakeAppointmentCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -528,7 +547,7 @@
                 <Property name="text" type="java.lang.String" value="Title"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentTitle">
               <Properties>
                 <Property name="text" type="java.lang.String" value="[CECS 341]"/>
               </Properties>
@@ -543,41 +562,41 @@
                 <Property name="text" type="java.lang.String" value="Date"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentDay">
               <Properties>
                 <Property name="text" type="java.lang.String" value="DD"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentMonth">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MM"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentMonthActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentYear">
               <Properties>
                 <Property name="text" type="java.lang.String" value="YYYY"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentYearActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentStartHour">
               <Properties>
                 <Property name="text" type="java.lang.String" value="HH"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField10ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentStartHourActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField11">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentStartMinute">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MM"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField11ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentStartMinuteActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
@@ -585,23 +604,23 @@
                 <Property name="text" type="java.lang.String" value="End Time"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField12">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentEndHour">
               <Properties>
                 <Property name="text" type="java.lang.String" value="HH"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField12ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentEndHourActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField13">
+            <Component class="javax.swing.JTextField" name="textMakeAppointmentEndMinute">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MM"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField13ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentEndMinuteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="rbMakeAppointmentStartAM">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
@@ -609,7 +628,7 @@
                 <Property name="text" type="java.lang.String" value="AM"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="rbMakeAppointmentStartPM">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
@@ -617,7 +636,7 @@
                 <Property name="text" type="java.lang.String" value="PM"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+            <Component class="javax.swing.JRadioButton" name="rbMakeAppointmentEndAM">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup2"/>
@@ -632,6 +651,22 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="PM"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonMakeAppointmentMake">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Make"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMakeAppointmentMakeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonMakeAppointmentCancel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancel"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMakeAppointmentCancelActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1410,11 +1445,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JColorChooser" name="jColorChooser1">
-          <Properties>
-            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[950, 600]"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>

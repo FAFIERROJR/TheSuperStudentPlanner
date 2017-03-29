@@ -21,6 +21,7 @@ public class TSSPGUI extends javax.swing.JFrame {
      */
     public TSSPGUI() {
         initComponents();
+        loginDialog.setVisible(true);
         try
         {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
@@ -28,13 +29,15 @@ public class TSSPGUI extends javax.swing.JFrame {
             Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/TheSuperStudentPlannerDB"); 
             //run create DB only once
             //createDB(conn);
+            
+            User user = new Student("Frank");
         }
         catch (Exception except)
         {
             except.printStackTrace();
         }
         
-        loginDialog.setVisible(true);
+        
     }
 
     /**
@@ -48,12 +51,12 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         loginDialog = new javax.swing.JDialog(this, true);
         jPanel1 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField2 = new javax.swing.JTextField();
+        textLoginPassword = new javax.swing.JPasswordField();
+        textLoginUsername = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonLoginExit = new javax.swing.JButton();
+        buttonLoginLogin = new javax.swing.JButton();
         createAccountDialog = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
@@ -78,21 +81,23 @@ public class TSSPGUI extends javax.swing.JFrame {
         makeAppointmentDialog = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        textMakeAppointmentTitle = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        textMakeAppointmentDay = new javax.swing.JTextField();
+        textMakeAppointmentMonth = new javax.swing.JTextField();
+        textMakeAppointmentYear = new javax.swing.JTextField();
+        textMakeAppointmentStartHour = new javax.swing.JTextField();
+        textMakeAppointmentStartMinute = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        textMakeAppointmentEndHour = new javax.swing.JTextField();
+        textMakeAppointmentEndMinute = new javax.swing.JTextField();
+        rbMakeAppointmentStartAM = new javax.swing.JRadioButton();
+        rbMakeAppointmentStartPM = new javax.swing.JRadioButton();
+        rbMakeAppointmentEndAM = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        buttonMakeAppointmentMake = new javax.swing.JButton();
+        buttonMakeAppointmentCancel = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         editAppointmentDialog = new javax.swing.JDialog();
@@ -177,16 +182,17 @@ public class TSSPGUI extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
+        loginDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         loginDialog.setTitle("Login to The Super Student Planner");
         loginDialog.setResizable(false);
         loginDialog.setSize(new java.awt.Dimension(397, 235));
 
-        jPasswordField1.setText("jPasswordField1");
+        textLoginPassword.setText("jPasswordField1");
 
-        jTextField2.setText("[JaneDoe]");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        textLoginUsername.setText("[JaneDoe]");
+        textLoginUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                textLoginUsernameActionPerformed(evt);
             }
         });
 
@@ -194,9 +200,19 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jLabel3.setText("Password");
 
-        jButton1.setText("Sign Up");
+        buttonLoginExit.setText("Exit");
+        buttonLoginExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoginExitActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Login");
+        buttonLoginLogin.setText("Login");
+        buttonLoginLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoginLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -209,14 +225,14 @@ public class TSSPGUI extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                    .addComponent(textLoginUsername)
+                    .addComponent(textLoginPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                 .addGap(79, 79, 79))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(buttonLoginExit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(buttonLoginLogin)
                 .addGap(9, 9, 9))
         );
         jPanel1Layout.setVerticalGroup(
@@ -224,16 +240,16 @@ public class TSSPGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(85, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(buttonLoginExit)
+                    .addComponent(buttonLoginLogin))
                 .addContainerGap())
         );
 
@@ -420,88 +436,88 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jLabel11.setText("Title");
 
-        jTextField6.setText("[CECS 341]");
+        textMakeAppointmentTitle.setText("[CECS 341]");
 
         jLabel12.setText("Start Time");
 
         jLabel13.setText("Date");
 
-        jTextField7.setText("DD");
+        textMakeAppointmentDay.setText("DD");
 
-        jTextField8.setText("MM");
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        textMakeAppointmentMonth.setText("MM");
+        textMakeAppointmentMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                textMakeAppointmentMonthActionPerformed(evt);
             }
         });
 
-        jTextField9.setText("YYYY");
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        textMakeAppointmentYear.setText("YYYY");
+        textMakeAppointmentYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                textMakeAppointmentYearActionPerformed(evt);
             }
         });
 
-        jTextField10.setText("HH");
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        textMakeAppointmentStartHour.setText("HH");
+        textMakeAppointmentStartHour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                textMakeAppointmentStartHourActionPerformed(evt);
             }
         });
 
-        jTextField11.setText("MM");
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        textMakeAppointmentStartMinute.setText("MM");
+        textMakeAppointmentStartMinute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                textMakeAppointmentStartMinuteActionPerformed(evt);
             }
         });
 
         jLabel14.setText("End Time");
 
-        jTextField12.setText("HH");
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        textMakeAppointmentEndHour.setText("HH");
+        textMakeAppointmentEndHour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                textMakeAppointmentEndHourActionPerformed(evt);
             }
         });
 
-        jTextField13.setText("MM");
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+        textMakeAppointmentEndMinute.setText("MM");
+        textMakeAppointmentEndMinute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
+                textMakeAppointmentEndMinuteActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("AM");
+        buttonGroup1.add(rbMakeAppointmentStartAM);
+        rbMakeAppointmentStartAM.setText("AM");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("PM");
+        buttonGroup1.add(rbMakeAppointmentStartPM);
+        rbMakeAppointmentStartPM.setText("PM");
 
-        buttonGroup2.add(jRadioButton3);
-        jRadioButton3.setText("AM");
+        buttonGroup2.add(rbMakeAppointmentEndAM);
+        rbMakeAppointmentEndAM.setText("AM");
 
         buttonGroup2.add(jRadioButton4);
         jRadioButton4.setText("PM");
+
+        buttonMakeAppointmentMake.setText("Make");
+        buttonMakeAppointmentMake.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMakeAppointmentMakeActionPerformed(evt);
+            }
+        });
+
+        buttonMakeAppointmentCancel.setText("Cancel");
+        buttonMakeAppointmentCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMakeAppointmentCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel11)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -512,28 +528,48 @@ public class TSSPGUI extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jRadioButton1)
+                                .addComponent(rbMakeAppointmentStartAM)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton2))
+                                .addComponent(rbMakeAppointmentStartPM))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textMakeAppointmentStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(textMakeAppointmentStartMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel14))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textMakeAppointmentEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textMakeAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jRadioButton3)
+                        .addComponent(rbMakeAppointmentEndAM)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButton4)))
                 .addGap(112, 112, 112))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(textMakeAppointmentTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textMakeAppointmentMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textMakeAppointmentDay, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(textMakeAppointmentYear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(74, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonMakeAppointmentCancel)
+                .addGap(18, 18, 18)
+                .addComponent(buttonMakeAppointmentMake)
+                .addGap(40, 40, 40))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -541,34 +577,38 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textMakeAppointmentTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textMakeAppointmentMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textMakeAppointmentYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textMakeAppointmentDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textMakeAppointmentStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textMakeAppointmentStartMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(textMakeAppointmentEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textMakeAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton3)
+                        .addComponent(rbMakeAppointmentEndAM)
                         .addComponent(jRadioButton4))
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1)
-                        .addComponent(jRadioButton2)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(rbMakeAppointmentStartAM)
+                        .addComponent(rbMakeAppointmentStartPM)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonMakeAppointmentMake)
+                    .addComponent(buttonMakeAppointmentCancel))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout makeAppointmentDialogLayout = new javax.swing.GroupLayout(makeAppointmentDialog.getContentPane());
@@ -1064,8 +1104,6 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         changeColorSchemeDialog.setSize(new java.awt.Dimension(950, 470));
 
-        jColorChooser1.setSize(new java.awt.Dimension(950, 600));
-
         jLabel29.setText("Choose a color scheme and select OK.");
 
         okButtonColorScheme.setText("OK");
@@ -1273,29 +1311,29 @@ public class TSSPGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menuAppointmentsActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void textMakeAppointmentMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMakeAppointmentMonthActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_textMakeAppointmentMonthActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void textMakeAppointmentYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMakeAppointmentYearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_textMakeAppointmentYearActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void textMakeAppointmentStartMinuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMakeAppointmentStartMinuteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_textMakeAppointmentStartMinuteActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void textMakeAppointmentStartHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMakeAppointmentStartHourActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_textMakeAppointmentStartHourActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void textMakeAppointmentEndHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMakeAppointmentEndHourActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_textMakeAppointmentEndHourActionPerformed
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+    private void textMakeAppointmentEndMinuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMakeAppointmentEndMinuteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
+    }//GEN-LAST:event_textMakeAppointmentEndMinuteActionPerformed
 
     private void menuEditAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditAppointmentActionPerformed
         // TODO add your handling code here:
@@ -1383,9 +1421,9 @@ public class TSSPGUI extends javax.swing.JFrame {
          cancelAppointmentDialog.setVisible(true);
     }//GEN-LAST:event_menuCancelAppointmentActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void textLoginUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textLoginUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_textLoginUsernameActionPerformed
 
     private void cancelButtonColorSchemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonColorSchemeActionPerformed
             // TODO add your handling code here:
@@ -1402,6 +1440,25 @@ public class TSSPGUI extends javax.swing.JFrame {
     private void okButtonColorSchemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonColorSchemeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_okButtonColorSchemeActionPerformed
+
+    private void buttonMakeAppointmentCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMakeAppointmentCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonMakeAppointmentCancelActionPerformed
+
+    private void buttonMakeAppointmentMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMakeAppointmentMakeActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_buttonMakeAppointmentMakeActionPerformed
+
+    private void buttonLoginExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_buttonLoginExitActionPerformed
+
+    private void buttonLoginLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginLoginActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_buttonLoginLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1472,6 +1529,10 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
+    private javax.swing.JButton buttonLoginExit;
+    private javax.swing.JButton buttonLoginLogin;
+    private javax.swing.JButton buttonMakeAppointmentCancel;
+    private javax.swing.JButton buttonMakeAppointmentMake;
     private javax.swing.JDialog cancelAppointmentDialog;
     private javax.swing.JButton cancelButtonColorScheme;
     private javax.swing.JDialog changeColorSchemeDialog;
@@ -1479,8 +1540,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JDialog changeUsernameDialog;
     private javax.swing.JDialog createAccountDialog;
     private javax.swing.JDialog editAppointmentDialog;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1524,12 +1583,10 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JPasswordField jPasswordField4;
     private javax.swing.JPasswordField jPasswordField5;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
@@ -1537,8 +1594,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton14;
     private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
@@ -1546,17 +1601,12 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
@@ -1578,10 +1628,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JDialog loginDialog;
     private javax.swing.JDialog makeAppointmentDialog;
     private javax.swing.JMenu menuAppointments;
@@ -1594,5 +1640,18 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuLogout;
     private javax.swing.JMenuItem menuMakeAppointment;
     private javax.swing.JButton okButtonColorScheme;
+    private javax.swing.JRadioButton rbMakeAppointmentEndAM;
+    private javax.swing.JRadioButton rbMakeAppointmentStartAM;
+    private javax.swing.JRadioButton rbMakeAppointmentStartPM;
+    private javax.swing.JPasswordField textLoginPassword;
+    private javax.swing.JTextField textLoginUsername;
+    private javax.swing.JTextField textMakeAppointmentDay;
+    private javax.swing.JTextField textMakeAppointmentEndHour;
+    private javax.swing.JTextField textMakeAppointmentEndMinute;
+    private javax.swing.JTextField textMakeAppointmentMonth;
+    private javax.swing.JTextField textMakeAppointmentStartHour;
+    private javax.swing.JTextField textMakeAppointmentStartMinute;
+    private javax.swing.JTextField textMakeAppointmentTitle;
+    private javax.swing.JTextField textMakeAppointmentYear;
     // End of variables declaration//GEN-END:variables
 }
