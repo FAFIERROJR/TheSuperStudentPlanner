@@ -125,17 +125,16 @@ public class Student extends User{
             
             ArrayList<Appointment> apps = new ArrayList<Appointment>();
             
-            do{
+            while(rs.next()){
                 apps.add(new Appointment(
                     rs.getString("STUDENTUSERNAME"),
                     rs.getString("TITLE"),
-                    rs.getString("DAY"),
                     rs.getString("DATE"),
                     rs.getString("STARTTIME"),
                     rs.getString("ENDTIME")
                 ));
+            }
             return apps;
-            }while(rs.next());
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }

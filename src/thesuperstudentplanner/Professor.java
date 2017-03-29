@@ -120,7 +120,6 @@ public class Professor extends User{
                 apps.add(new Appointment(
                     null,
                     rs.getString("TITLE"),
-                    rs.getString("DAY"),
                     rs.getString("DATE"),
                     rs.getString("STARTTIME"),
                     rs.getString("ENDTIME")

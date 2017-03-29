@@ -40,20 +40,24 @@ public class Appointment {
         eMinute = em;   
     }
     
-    public Appointment(String id, String t, String dw, String dt, String st, String et){
+    public Appointment(String id, String t, String dt, String st, String et){
         username = id;
         title = t;
-        dayOfWeek = dw;
+        
         String dateArr[] = dt.split("-");
-        int year = Integer.parseInt(dateArr[0]);
-        int month = Integer.parseInt(dateArr[1]);
-        int day = Integer.parseInt(dateArr[2]);
+        System.out.println(dateArr[0]);
+        year = Integer.parseInt(dateArr[0]);
+        System.out.println(dateArr[1]);
+        month = Integer.parseInt(dateArr[1]);
+        System.out.println(getMonth());
+        System.out.println(dateArr[2]);
+        day = Integer.parseInt(dateArr[2]);
         String sTimeArr[] = st.split(":");
-        int sHour = Integer.parseInt(sTimeArr[0]);
-        int sMinute = Integer.parseInt(sTimeArr[1]);
+        sHour = Integer.parseInt(sTimeArr[0]);
+        sMinute = Integer.parseInt(sTimeArr[1]);
         String eTimeArr[] = et.split(":");
-        int eHour = Integer.parseInt(eTimeArr[0]);
-        int eMinute = Integer.parseInt(eTimeArr[1]);
+        eHour = Integer.parseInt(eTimeArr[0]);
+        eMinute = Integer.parseInt(eTimeArr[1]);
     }
    
     public int getYear(){

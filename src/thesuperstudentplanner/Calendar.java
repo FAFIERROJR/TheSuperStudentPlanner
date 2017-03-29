@@ -23,6 +23,7 @@ public class Calendar {
    private Object table[][];
    private boolean colorCell[][];
    private String[] titles;
+   private int rows = 48;
    
    public boolean[][] getColorCell(){
         return colorCell;
@@ -54,10 +55,11 @@ public class Calendar {
            
             LocalDate sDate = new LocalDate(startYear,  startMonth, startDay);
             LocalDate eDate= new LocalDate(endYear,  endMonth, endDay);
-            int daysBetween = Days.daysBetween(eDate, sDate).getDays();
+            int daysBetween = Days.daysBetween(sDate,eDate).getDays();
             size = daysBetween +2;
-            colorCell = new boolean [size][size];
-            table = new Object[size][size];
+            System.out.println("size: " + size);
+            colorCell = new boolean [rows][size];
+            table = new Object[rows][size];
 
            for(Appointment app : apps){
               int endHour = app.getEHour();
@@ -65,6 +67,8 @@ public class Calendar {
              
               int startHour = app.getSHour();
               int startMinute = app.getSMinute();
+              System.out.println("title: " + app.getTitle());
+              System.out.println("get month:" + app.getMonth());
               LocalDate appDate = new LocalDate(app.getYear(), app.getMonth(), app.getDay());
               int span = (endHour - startHour)*2;
               int minDifference = endMinute - startMinute;
@@ -79,17 +83,17 @@ public class Calendar {
           
               
               rowIndex = startHour * 2;
-              columnIndex = Days.daysBetween(appDate, sDate).getDays() + 1;
+              columnIndex = Days.daysBetween(sDate, appDate).getDays() + 1;
               if (startMinute == 30){
                   rowIndex++;
               }
-      
+               System.out.println("size, row, col " + size + " " + rowIndex + " " + columnIndex);
                table [rowIndex][columnIndex]= app.toString(); 
                for (int i = 0 ; i< rowIndex + span; i++){ 
                    colorCell[rowIndex + i][columnIndex]= true; 
                    
                }
-          System.out.println(table[rowIndex][columnIndex]);
+               System.out.println(table[rowIndex][columnIndex]);
      
            }//end of (Appointment app : apps)
            
@@ -100,6 +104,19 @@ public class Calendar {
            for( int i = 1; i < size ; i++ ) { //(0,0) cell is null. start at 1
                titles[i] = currentDate.toString("MM/dd/yyyy"); //set the start day
                currentDate = currentDate.plusDays(1); //increment to the next day
+           }
+           
+           for(int i = 0; i < 48; i++){
+               if(i % 2 == 0){
+                   table[i][0] = Integer.toString(i / 2);
+                   if(i == 0){
+                       table[0][0] = "12";
+                   }
+                   if(i < 24){
+                       
+                   }
+                           
+               }
            }
 
         }

@@ -49,6 +49,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     public void drawTable(Calendar calendar, User user, String startDate, String endDate){
         
         planner = new JTable(calendar.createTableModel(user, startDate, endDate));
+        planner.repaint();
         
         
     }
@@ -1548,7 +1549,7 @@ public class TSSPGUI extends javax.swing.JFrame {
         }
         catch (Exception except)
         {
-            except.printStackTrace()
+            except.printStackTrace();
         }
         
     }//GEN-LAST:event_buttonLoginLoginActionPerformed
