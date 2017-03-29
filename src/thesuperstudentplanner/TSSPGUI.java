@@ -1533,8 +1533,14 @@ public class TSSPGUI extends javax.swing.JFrame {
             }
             if(user!=null){
                 DateTime now = new DateTime();
-                drawTable(calendar,user,now.toLocalDate().toString("yyyy-mm-dd"), 
-                        now.toLocalDate().plusDays(6).toString("yyyy-mm-dd"));
+                String today = now.toLocalDate().toString("yyyy-MM-dd");
+                String endDate = now.toLocalDate().plusDays(6).toString("yyyy-MM-dd");
+                
+                System.out.println(today);
+                System.out.println(endDate);
+                
+                drawTable(calendar, user, today, endDate);
+                
                 
             }
                
@@ -1542,7 +1548,7 @@ public class TSSPGUI extends javax.swing.JFrame {
         }
         catch (Exception except)
         {
-            except.printStackTrace();
+            except.printStackTrace()
         }
         
     }//GEN-LAST:event_buttonLoginLoginActionPerformed
