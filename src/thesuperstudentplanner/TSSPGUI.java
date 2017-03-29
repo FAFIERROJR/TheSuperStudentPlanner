@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  * @author Francisco
  */
 public class TSSPGUI extends javax.swing.JFrame {
+    
+    private User user;
 
     /**
      * Creates new form TSSPGUI
@@ -29,7 +31,6 @@ public class TSSPGUI extends javax.swing.JFrame {
             //run create DB only once
             //createDB(conn);
             
-            User user = new Student("Frank");
         }
         catch (Exception except)
         {
@@ -1456,6 +1457,58 @@ public class TSSPGUI extends javax.swing.JFrame {
 
     private void buttonLoginLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginLoginActionPerformed
         // TODO add your handling code here:
+        try
+        {
+            Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+            //Get a connection
+            Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/TheSuperStudentPlannerDB"); 
+            //run create DB only once
+            //createDB(conn);
+            
+            String username = textLoginUsername.getText();
+            char[] passwordchar = textLoginPassword.getPassword();
+            String password = "";
+            
+            for(int i = 0; i < passwordchar.length; i++){
+                password += passwordchar[i];
+            }
+            
+            System.out.println(username);
+            System.out.println(password);
+            
+            
+            String stusql =  "SELECT * FROM students WHERE studentusername = ? AND password = ?";
+            PreparedStatement stupstmt = conn.prepareStatement(stusql);
+            stupstmt.setString(1, username);
+            stupstmt.setString(2, password);
+            ResultSet sturs = stupstmt.executeQuery();
+            
+            if(sturs.next()){
+                user = new Student(username);
+                loginDialog.setVisible(false);
+                System.out.println("true");
+                return;
+            }
+            
+            String profsql =  "SELECT 1 FROM students WHERE studentusername = ? AND password = ?";
+            PreparedStatement profpstmt = conn.prepareStatement(profsql);
+            profpstmt.setString(1, username);
+            profpstmt.setString(2, password);
+            ResultSet profrs = profpstmt.executeQuery();
+            
+            if(profrs.next()){
+                user = new Professor(username);
+                loginDialog.setVisible(false);
+                return;
+            }
+            
+               
+            
+        }
+        catch (Exception except)
+        {
+            except.printStackTrace();
+        }
         
     }//GEN-LAST:event_buttonLoginLoginActionPerformed
 

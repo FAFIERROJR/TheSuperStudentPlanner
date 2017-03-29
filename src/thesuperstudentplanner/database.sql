@@ -5,6 +5,7 @@ CREATE TABLE students
   studentusername VARCHAR (20) NOT NULL,
   firstName VARCHAR(20) NOT NULL,
   lastName VARCHAR(20) NOT NULL,
+  password VARCHAR(20) NOT NULL,
   CONSTRAINT pk_students PRIMARY KEY (studentusername)
   );
 
@@ -14,6 +15,7 @@ CREATE TABLE professors
   profusername VARCHAR (20) NOT NULL,
   firstName VARCHAR(20) NOT NULL,
   lastName VARCHAR(20) NOT NULL,
+  password VARCHAR(20) NOT NULL,
   CONSTRAINT pk_professors PRIMARY KEY (profusername)
   );
 
@@ -30,19 +32,19 @@ CREATE TABLE appointments
 
 
 INSERT INTO students 
-    VALUES ('anncook','Ann','Cook'),
-    ('ralphvasquez', 'Ralph', 'Vasquez'),
-    ('willieallen', 'Willie', 'Allen'),
-    ('juliepeters','Julie','Peters'),
-    ('robertcohen', 'Robert', 'Cohen'),
-    ('ericaaustin', 'Erica','Austin'),
-    ('anglowong','Angelo', 'Wong'),
-    ('irvinmiller', 'Irvin', 'Miller'),
-    ('lindsayparsons', 'Lindsay', 'Parsons'),
-    ('jamiereed', 'Jamie', 'Reed');
+    VALUES ('anncook','Ann','Cook', 'password'),
+    ('ralphvasquez', 'Ralph', 'Vasquez', 'password'),
+    ('willieallen', 'Willie', 'Allen', 'password'),
+    ('juliepeters','Julie','Peters', 'password'),
+    ('robertcohen', 'Robert', 'Cohen', 'password'),
+    ('ericaaustin', 'Erica','Austin', 'password'),
+    ('anglowong','Angelo', 'Wong', 'password'),
+    ('irvinmiller', 'Irvin', 'Miller', 'password'),
+    ('lindsayparsons', 'Lindsay', 'Parsons', 'password'),
+    ('jamiereed', 'Jamie', 'Reed', 'password');
 
 INSERT INTO professors
-    VALUES ('feihoffman', 'Fei', 'Hoffman');
+    VALUES ('feihoffman', 'Fei', 'Hoffman', 'password');
 
     
 INSERT INTO appointments
