@@ -9,6 +9,9 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
+import org.joda.time.DateTime;
+import static org.joda.time.LocalDate.*;
 /**
  *
  * @author Francisco
@@ -16,13 +19,16 @@ import java.util.logging.Logger;
 public class TSSPGUI extends javax.swing.JFrame {
     
     private User user;
+    private Calendar calendar;
 
     /**
      * Creates new form TSSPGUI
      */
     public TSSPGUI() {
         initComponents();
+        calendar = new Calendar();
         loginDialog.setVisible(true);
+       
         try
         {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
@@ -36,6 +42,13 @@ public class TSSPGUI extends javax.swing.JFrame {
         {
             except.printStackTrace();
         }
+        
+        
+    }
+    
+    public void drawTable(Calendar calendar, User user, String startDate, String endDate){
+        
+        planner = new JTable(calendar.createTableModel(user, startDate, endDate));
         
         
     }
@@ -166,6 +179,8 @@ public class TSSPGUI extends javax.swing.JFrame {
         okButtonColorScheme = new javax.swing.JButton();
         cancelButtonColorScheme = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        planner = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAppointments = new javax.swing.JMenu();
         menuMakeAppointment = new javax.swing.JMenuItem();
@@ -1157,15 +1172,30 @@ public class TSSPGUI extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setSize(new java.awt.Dimension(800, 600));
 
+        planner.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(planner);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 501, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1487,10 +1517,10 @@ public class TSSPGUI extends javax.swing.JFrame {
                 user = new Student(username);
                 loginDialog.setVisible(false);
                 System.out.println("true");
-                return;
+                
             }
             
-            String profsql =  "SELECT 1 FROM students WHERE studentusername = ? AND password = ?";
+            String profsql =  "SELECT 1 FROM professors WHERE profusername = ? AND password = ?";
             PreparedStatement profpstmt = conn.prepareStatement(profsql);
             profpstmt.setString(1, username);
             profpstmt.setString(2, password);
@@ -1499,9 +1529,14 @@ public class TSSPGUI extends javax.swing.JFrame {
             if(profrs.next()){
                 user = new Professor(username);
                 loginDialog.setVisible(false);
-                return;
+                
             }
-            
+            if(user!=null){
+                DateTime now = new DateTime();
+                drawTable(calendar,user,now.toLocalDate().toString("yyyy-mm-dd"), 
+                        now.toLocalDate().plusDays(6).toString("yyyy-mm-dd"));
+                
+            }
                
             
         }
@@ -1652,6 +1687,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
@@ -1692,6 +1728,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuLogout;
     private javax.swing.JMenuItem menuMakeAppointment;
     private javax.swing.JButton okButtonColorScheme;
+    private javax.swing.JTable planner;
     private javax.swing.JRadioButton rbMakeAppointmentEndAM;
     private javax.swing.JRadioButton rbMakeAppointmentStartAM;
     private javax.swing.JRadioButton rbMakeAppointmentStartPM;

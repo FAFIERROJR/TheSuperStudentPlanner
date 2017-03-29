@@ -48,5 +48,5 @@ INSERT INTO professors
 
     
 INSERT INTO appointments
-    VALUES ('CECS 341', '2017-03-27', '9:00', '10:00','anncook');
+    VALUES ('CECS 341', '2017-04-01', '9:00', '10:00','anncook');
 

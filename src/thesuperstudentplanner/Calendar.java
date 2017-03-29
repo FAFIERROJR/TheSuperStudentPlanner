@@ -57,7 +57,7 @@ public class Calendar {
             int daysBetween = Days.daysBetween(eDate, sDate).getDays();
             size = daysBetween +2;
             colorCell = new boolean [size][size];
-            table = new Appointment[size][size];
+            table = new Object[size][size];
 
            for(Appointment app : apps){
               int endHour = app.getEHour();
@@ -84,12 +84,15 @@ public class Calendar {
                   rowIndex++;
               }
       
-               table [rowIndex][columnIndex]= app; 
+               table [rowIndex][columnIndex]= app.toString(); 
                for (int i = 0 ; i< rowIndex + span; i++){ 
-                   colorCell[rowIndex + i][columnIndex]= true;   
+                   colorCell[rowIndex + i][columnIndex]= true; 
+                   
                }
-      
+          System.out.println(table[rowIndex][columnIndex]);
+     
            }//end of (Appointment app : apps)
+           
            
            titles = new String[size];
            LocalDate currentDate = sDate;

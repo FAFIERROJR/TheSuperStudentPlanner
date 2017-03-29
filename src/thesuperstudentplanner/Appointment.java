@@ -144,6 +144,11 @@ public class Appointment {
     public void setUsername(String id){
         username = id;
     }
+    @Override
+    public String toString(){
+        
+        return title;
+    }
 
     
 }

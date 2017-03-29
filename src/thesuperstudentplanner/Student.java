@@ -118,8 +118,7 @@ public class Student extends User{
                 + "FROM appointments "
                 + "WHERE "
                 + "STUDENTUSERNAME = " + getUsername() + " AND "
-                + "DATE >= '" + startDate + "' AND "
-                + "ENDDATE <= '" + endDate + "' AND";
+                + "DATE >= '" + startDate + "' ";
         
             ResultSet rs = stmt.executeQuery(cmd);
             
