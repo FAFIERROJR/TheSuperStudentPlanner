@@ -6,6 +6,7 @@
 package thesuperstudentplanner;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -56,6 +57,8 @@ public class Professor extends User{
     /**
      *
      * @param conn          the connection to the database
+     * @param newApp
+     * @param oldApp
      * @param title         the title of the appointment
      * @param desc          description of the appointment
      * @param date          date of appointment
@@ -134,7 +137,7 @@ public class Professor extends User{
     /**
      *
      * @param conn             connection to database
-     * @param oldpassword      user's old password
+     * @param oldPassword
      * @param newPassword      user's new password
      * @return
      */
@@ -190,6 +193,45 @@ public class Professor extends User{
         }
         
         return false;
+    }
+    
+    /**
+     *
+     * @param conn
+     * @param app
+     * @return
+     */
+    @Override
+    public boolean cancelAppt(Connection conn, Appointment app){
+        try {
+            System.out.println(app.getDate());
+            System.out.println(app.getStartTime());
+            System.out.println(app.getEndTime());
+         
+            String cmd = "DELETE FROM appointments "
+                + "WHERE "
+                    + "title = ? "
+                    + "AND date = ? "
+                    + "AND starttime = ? "
+                    + "AND endtime = ? ";
+            
+            System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
+            PreparedStatement pstmt = conn.prepareStatement(cmd);
+
+                pstmt.setString(1, app.getTitle());
+                pstmt.setString(2, app.getDate());
+                pstmt.setString(3, app.getStartTime());
+                pstmt.setString(4, app.getEndTime());
+                
+           System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
+           pstmt.execute();
+         
+            return true;
+       
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
     
 }

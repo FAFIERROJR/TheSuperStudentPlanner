@@ -21,7 +21,7 @@ public class Student extends User{
     
     
     public Student(String username){
-        setUsername(username);
+        super.setUsername(username);
     }
     
     public Student(String username, ArrayList<String> cls){
