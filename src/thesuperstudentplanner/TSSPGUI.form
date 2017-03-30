@@ -1599,6 +1599,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Set Calendar Range"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuChangeColorScheme">
               <Properties>

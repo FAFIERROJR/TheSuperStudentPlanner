@@ -1314,6 +1314,11 @@ public class TSSPGUI extends javax.swing.JFrame {
         jMenu3.setText("Settings");
 
         jMenuItem6.setText("Set Calendar Range");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem6);
 
         menuChangeColorScheme.setText("Change Color Scheme");
@@ -1830,7 +1835,7 @@ public class TSSPGUI extends javax.swing.JFrame {
             
             cancelAppointmentDialog.setVisible(false);
             Appointment app = new Appointment(user.getUsername(), title, day, month, year, sHour, sMinute, eHour, eMinute);
-            user.makeAppt(conn, app);
+            user.cancelAppt(conn, app);
             
             drawTable(startDate, endDate);
                 
@@ -1849,6 +1854,10 @@ public class TSSPGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         cancelAppointmentDialog.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments

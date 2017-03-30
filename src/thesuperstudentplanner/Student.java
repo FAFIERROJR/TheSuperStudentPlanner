@@ -200,7 +200,7 @@ public class Student extends User{
             System.out.println(app.getDate());
             System.out.println(app.getStartTime());
             System.out.println(app.getEndTime());
-            
+         
             String cmd = "DELETE FROM appointments "
                 + "WHERE "
                     + "title = ? "
@@ -217,7 +217,8 @@ public class Student extends User{
                 pstmt.setString(3, app.getStartTime());
                 pstmt.setString(4, app.getEndTime());
                 pstmt.setString(5, app.getUsername());
-           
+                
+           System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
            pstmt.execute();
          
             return true;
