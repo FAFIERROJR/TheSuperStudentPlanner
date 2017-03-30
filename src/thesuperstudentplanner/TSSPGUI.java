@@ -5,6 +5,8 @@
  */
 package thesuperstudentplanner;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -20,6 +22,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     
     private User user;
     private Calendar calendar;
+    private String startDate;
+    private String endDate;
 
     /**
      * Creates new form TSSPGUI
@@ -46,7 +50,7 @@ public class TSSPGUI extends javax.swing.JFrame {
         
     }
     
-    public void drawTable(Calendar calendar, User user, String startDate, String endDate){
+    public void drawTable(String startDate, String endDate){
         
         planner = new JTable();
         planner.setModel(calendar.createTableModel(user, startDate, endDate));
@@ -54,6 +58,8 @@ public class TSSPGUI extends javax.swing.JFrame {
         for(int i = 0; i < planner.getColumnCount(); i++){
             planner.getColumnModel().getColumn(i).setCellRenderer(renderer);
         }
+        planner.setForeground(Color.white);
+        planner.setFont(new Font("Arial", Font.BOLD, 12));
         planner.repaint();
         jScrollPane1.setViewportView(planner);
         
@@ -114,7 +120,7 @@ public class TSSPGUI extends javax.swing.JFrame {
         rbMakeAppointmentStartAM = new javax.swing.JRadioButton();
         rbMakeAppointmentStartPM = new javax.swing.JRadioButton();
         rbMakeAppointmentEndAM = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        rbMakeAppointmentEndPM = new javax.swing.JRadioButton();
         buttonMakeAppointmentMake = new javax.swing.JButton();
         buttonMakeAppointmentCancel = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -518,8 +524,8 @@ public class TSSPGUI extends javax.swing.JFrame {
         buttonGroup2.add(rbMakeAppointmentEndAM);
         rbMakeAppointmentEndAM.setText("AM");
 
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("PM");
+        buttonGroup2.add(rbMakeAppointmentEndPM);
+        rbMakeAppointmentEndPM.setText("PM");
 
         buttonMakeAppointmentMake.setText("Make");
         buttonMakeAppointmentMake.addActionListener(new java.awt.event.ActionListener() {
@@ -569,7 +575,7 @@ public class TSSPGUI extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(rbMakeAppointmentEndAM)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton4)))
+                        .addComponent(rbMakeAppointmentEndPM)))
                 .addGap(112, 112, 112))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
@@ -621,7 +627,7 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(rbMakeAppointmentEndAM)
-                        .addComponent(jRadioButton4))
+                        .addComponent(rbMakeAppointmentEndPM))
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(rbMakeAppointmentStartAM)
                         .addComponent(rbMakeAppointmentStartPM)))
@@ -1479,10 +1485,59 @@ public class TSSPGUI extends javax.swing.JFrame {
 
     private void buttonMakeAppointmentCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMakeAppointmentCancelActionPerformed
         // TODO add your handling code here:
+        makeAppointmentDialog.setVisible(false);
     }//GEN-LAST:event_buttonMakeAppointmentCancelActionPerformed
 
     private void buttonMakeAppointmentMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMakeAppointmentMakeActionPerformed
         // TODO add your handling code here:
+                
+        try
+        {
+            Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+            //Get a connection
+            Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/TheSuperStudentPlannerDB"); 
+            //run create DB only once
+            //createDB(conn);
+            
+            int day = Integer.parseInt(textMakeAppointmentDay.getText());
+            int sHour = Integer.parseInt(textMakeAppointmentStartHour.getText());
+            int sMinute = Integer.parseInt(textMakeAppointmentStartMinute.getText());
+            int eHour = Integer.parseInt(textMakeAppointmentEndHour.getText());
+            int eMinute = Integer.parseInt(textMakeAppointmentEndMinute.getText());
+            String title = textMakeAppointmentTitle.getText();
+            int month = Integer.parseInt(textMakeAppointmentMonth.getText());
+            int year = Integer.parseInt(textMakeAppointmentYear.getText());
+
+            Appointment app = new Appointment(user.getUsername(), title, day, month, year, sHour, sMinute, eHour, eMinute);
+            user.makeAppt(conn, app);
+            
+            drawTable(startDate, endDate);
+            
+            if(rbMakeAppointmentStartAM.isSelected()){
+                if(sHour == 12){
+                    sHour = 0;
+                }
+            }
+            else if(rbMakeAppointmentStartPM.isSelected()){
+                sHour += 12;
+            }
+            
+            if(rbMakeAppointmentEndAM.isSelected()){
+                if(sHour == 12){
+                    eHour = 0;
+                }
+            }
+            else if(rbMakeAppointmentEndPM.isSelected()){
+                eHour += 12;
+            }
+            
+                
+        }
+        catch (Exception except)
+        {
+            except.printStackTrace();
+        }
+        
         
     }//GEN-LAST:event_buttonMakeAppointmentMakeActionPerformed
 
@@ -1539,13 +1594,13 @@ public class TSSPGUI extends javax.swing.JFrame {
             }
             if(user!=null){
                 DateTime now = new DateTime();
-                String today = now.toLocalDate().toString("yyyy-MM-dd");
+                String startDate = now.toLocalDate().toString("yyyy-MM-dd");
                 String endDate = now.toLocalDate().plusDays(6).toString("yyyy-MM-dd");
                 
-                System.out.println(today);
+                System.out.println(startDate);
                 System.out.println(endDate);
                 
-                drawTable(calendar, user, today, endDate);
+                drawTable(startDate, endDate);
                 
                 
             }
@@ -1693,7 +1748,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton14;
     private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
@@ -1742,6 +1796,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JButton okButtonColorScheme;
     private javax.swing.JTable planner;
     private javax.swing.JRadioButton rbMakeAppointmentEndAM;
+    private javax.swing.JRadioButton rbMakeAppointmentEndPM;
     private javax.swing.JRadioButton rbMakeAppointmentStartAM;
     private javax.swing.JRadioButton rbMakeAppointmentStartPM;
     private javax.swing.JPasswordField textLoginPassword;

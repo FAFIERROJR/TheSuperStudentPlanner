@@ -40,7 +40,6 @@ public class Professor extends User{
                 + "VALUES ("
                 + app.getUsername() + ", '"
                 + app.getTitle() + "', '"
-                + app.getDay() + "', '"
                 + app.getDate() + "', '"
                 + app.getStartTime() + "', '"
                 + app.getEndTime() + "')";
@@ -73,7 +72,6 @@ public class Professor extends User{
                     + "SET "
 //                    + "STUDENTUSERNAME = '" + newApp.getUsername() + "', "
                     + "TITLE = '" + newApp.getTitle() + "', "
-                    + "DAY = '" + newApp.getDay() + "', "
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
                     + "ENDTIME = '" + newApp.getEndTime() + "') "

@@ -25,12 +25,11 @@ public class Appointment {
     
     public Appointment(){}
     
-    public Appointment(String id, String t, String dw, int d, int m, int y, int sh,
+    public Appointment(String id, String t, int d, int m, int y, int sh,
             int sm, int eh, int em){
         
         username = id;
         title = t;
-        dayOfWeek = dw;
         day = d;
         month = m;
         year = y;

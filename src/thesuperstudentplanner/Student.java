@@ -82,7 +82,6 @@ public class Student extends User{
                     + "SET "
                     + "studentusername = '" + newApp.getUsername() + "', "
                     + "TITLE = '" + newApp.getTitle() + "', "
-                    + "DAY = '" + newApp.getDay() + "', "
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
                     + "ENDTIME = '" + newApp.getEndTime() + "') "
