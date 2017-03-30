@@ -58,7 +58,6 @@ public class TSSPGUI extends javax.swing.JFrame {
         for(int i = 0; i < planner.getColumnCount(); i++){
             planner.getColumnModel().getColumn(i).setCellRenderer(renderer);
         }
-        planner.setForeground(Color.white);
         planner.setFont(new Font("Arial", Font.BOLD, 12));
         planner.repaint();
         jScrollPane1.setViewportView(planner);

@@ -32,6 +32,13 @@ public class CustomCellRenderer extends DefaultTableCellRenderer{
         else{
             cell.setBackground(Color.white);
         }
+        
+        if(col== 0){
+            cell.setForeground(Color.BLACK);
+        }
+        else{
+            cell.setForeground(Color.WHITE);
+        }
         return cell;
        }
 }

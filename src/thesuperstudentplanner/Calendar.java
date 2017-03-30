@@ -102,21 +102,32 @@ public class Calendar {
            LocalDate currentDate = sDate;
            
            for( int i = 1; i < size ; i++ ) { //(0,0) cell is null. start at 1
+               if(i == 0){
+                   titles[i] = "Time";
+               }
                titles[i] = currentDate.toString("MM/dd/yyyy"); //set the start day
                currentDate = currentDate.plusDays(1); //increment to the next day
            }
            
            for(int i = 0; i < 48; i++){
                if(i % 2 == 0){
-                   table[i][0] = Integer.toString(i / 2);
+
                    if(i == 0){
-                       table[0][0] = "12";
+                       table[i][0] = "12 AM";
                    }
-                   if(i < 24){
+                   if(i < 24 && i != 0){
+                       table[i][0] = Integer.toString(i / 2);
+                       table[i][0] += " AM";
+                   }
+                   if(i == 24){
                        
+                       table[i][0] = "12 PM";
                    }
-                           
-               }
+                   if(i > 24){
+                       table[i][0] = Integer.toString(i / 2 - 12);
+                       table[i][0] += "PM ";
+                   }
+                }
            }
 
         }
