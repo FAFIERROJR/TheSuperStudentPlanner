@@ -170,21 +170,23 @@ public class TSSPGUI extends javax.swing.JFrame {
         cancelAppointmentDialog = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
+        textCancelAppointmentTitle = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
-        jTextField32 = new javax.swing.JTextField();
-        jTextField33 = new javax.swing.JTextField();
-        jTextField34 = new javax.swing.JTextField();
-        jTextField35 = new javax.swing.JTextField();
+        textCancelAppointmentDay = new javax.swing.JTextField();
+        textCancelAppointmentMonth = new javax.swing.JTextField();
+        textCancelAppointmentYear = new javax.swing.JTextField();
+        textCancelAppointmentStartHour = new javax.swing.JTextField();
+        textCancelAppointmentStartMinute = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jTextField36 = new javax.swing.JTextField();
-        jTextField37 = new javax.swing.JTextField();
-        jRadioButton13 = new javax.swing.JRadioButton();
-        jRadioButton14 = new javax.swing.JRadioButton();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jRadioButton16 = new javax.swing.JRadioButton();
+        textCancelAppointmentEndHour = new javax.swing.JTextField();
+        textCancelAppointmentEndMinute = new javax.swing.JTextField();
+        rbCancelAppointmentStartAM = new javax.swing.JRadioButton();
+        rbCancelAppointmentStartPM = new javax.swing.JRadioButton();
+        rbCancelAppointmentEndAM = new javax.swing.JRadioButton();
+        rbCancelAppointmentEndPM = new javax.swing.JRadioButton();
+        buttonCancelAppointmentOK = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         buttonGroup7 = new javax.swing.ButtonGroup();
         buttonGroup8 = new javax.swing.ButtonGroup();
         changeColorSchemeDialog = new javax.swing.JDialog();
@@ -1007,69 +1009,83 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jLabel25.setText("Title");
 
-        jTextField30.setText("[CECS 341]");
+        textCancelAppointmentTitle.setText("[CECS 341]");
 
         jLabel26.setText("Start Time");
 
         jLabel27.setText("Date");
 
-        jTextField31.setText("DD");
+        textCancelAppointmentDay.setText("DD");
 
-        jTextField32.setText("MM");
-        jTextField32.addActionListener(new java.awt.event.ActionListener() {
+        textCancelAppointmentMonth.setText("MM");
+        textCancelAppointmentMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField32ActionPerformed(evt);
+                textCancelAppointmentMonthActionPerformed(evt);
             }
         });
 
-        jTextField33.setText("YYYY");
-        jTextField33.addActionListener(new java.awt.event.ActionListener() {
+        textCancelAppointmentYear.setText("YYYY");
+        textCancelAppointmentYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField33ActionPerformed(evt);
+                textCancelAppointmentYearActionPerformed(evt);
             }
         });
 
-        jTextField34.setText("HH");
-        jTextField34.addActionListener(new java.awt.event.ActionListener() {
+        textCancelAppointmentStartHour.setText("HH");
+        textCancelAppointmentStartHour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField34ActionPerformed(evt);
+                textCancelAppointmentStartHourActionPerformed(evt);
             }
         });
 
-        jTextField35.setText("MM");
-        jTextField35.addActionListener(new java.awt.event.ActionListener() {
+        textCancelAppointmentStartMinute.setText("MM");
+        textCancelAppointmentStartMinute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField35ActionPerformed(evt);
+                textCancelAppointmentStartMinuteActionPerformed(evt);
             }
         });
 
         jLabel28.setText("End Time");
 
-        jTextField36.setText("HH");
-        jTextField36.addActionListener(new java.awt.event.ActionListener() {
+        textCancelAppointmentEndHour.setText("HH");
+        textCancelAppointmentEndHour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField36ActionPerformed(evt);
+                textCancelAppointmentEndHourActionPerformed(evt);
             }
         });
 
-        jTextField37.setText("MM");
-        jTextField37.addActionListener(new java.awt.event.ActionListener() {
+        textCancelAppointmentEndMinute.setText("MM");
+        textCancelAppointmentEndMinute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField37ActionPerformed(evt);
+                textCancelAppointmentEndMinuteActionPerformed(evt);
             }
         });
 
-        buttonGroup7.add(jRadioButton13);
-        jRadioButton13.setText("AM");
+        buttonGroup7.add(rbCancelAppointmentStartAM);
+        rbCancelAppointmentStartAM.setText("AM");
 
-        buttonGroup7.add(jRadioButton14);
-        jRadioButton14.setText("PM");
+        buttonGroup7.add(rbCancelAppointmentStartPM);
+        rbCancelAppointmentStartPM.setText("PM");
 
-        buttonGroup8.add(jRadioButton15);
-        jRadioButton15.setText("AM");
+        buttonGroup8.add(rbCancelAppointmentEndAM);
+        rbCancelAppointmentEndAM.setText("AM");
 
-        buttonGroup8.add(jRadioButton16);
-        jRadioButton16.setText("PM");
+        buttonGroup8.add(rbCancelAppointmentEndPM);
+        rbCancelAppointmentEndPM.setText("PM");
+
+        buttonCancelAppointmentOK.setText("OK");
+        buttonCancelAppointmentOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelAppointmentOKActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1079,15 +1095,15 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addComponent(jLabel25)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textCancelAppointmentTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textCancelAppointmentMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(textCancelAppointmentDay, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textCancelAppointmentYear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1099,28 +1115,36 @@ public class TSSPGUI extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jRadioButton13)
+                                .addComponent(rbCancelAppointmentStartAM)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton14))
+                                .addComponent(rbCancelAppointmentStartPM))
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textCancelAppointmentStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textCancelAppointmentStartMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel28))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(textCancelAppointmentEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textCancelAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(rbCancelAppointmentEndAM)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbCancelAppointmentEndPM))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jRadioButton15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton16)))
+                        .addGap(222, 222, 222)
+                        .addComponent(jLabel28)))
                 .addGap(112, 112, 112))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(buttonCancelAppointmentOK)
+                .addGap(19, 19, 19))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1128,32 +1152,36 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCancelAppointmentTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
-                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textCancelAppointmentMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCancelAppointmentYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCancelAppointmentDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textCancelAppointmentStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textCancelAppointmentStartMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel28)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(textCancelAppointmentEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textCancelAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton13)
-                    .addComponent(jRadioButton14)
-                    .addComponent(jRadioButton15)
-                    .addComponent(jRadioButton16))
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addComponent(rbCancelAppointmentStartAM)
+                    .addComponent(rbCancelAppointmentStartPM)
+                    .addComponent(rbCancelAppointmentEndAM)
+                    .addComponent(rbCancelAppointmentEndPM))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCancelAppointmentOK)
+                    .addComponent(jButton1))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cancelAppointmentDialogLayout = new javax.swing.GroupLayout(cancelAppointmentDialog.getContentPane());
@@ -1472,33 +1500,34 @@ public class TSSPGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbEditAppointmentOldAppointmentStartAMActionPerformed
 
-    private void jTextField32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField32ActionPerformed
+    private void textCancelAppointmentMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCancelAppointmentMonthActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField32ActionPerformed
+    }//GEN-LAST:event_textCancelAppointmentMonthActionPerformed
 
-    private void jTextField33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField33ActionPerformed
+    private void textCancelAppointmentYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCancelAppointmentYearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField33ActionPerformed
+    }//GEN-LAST:event_textCancelAppointmentYearActionPerformed
 
-    private void jTextField34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField34ActionPerformed
+    private void textCancelAppointmentStartHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCancelAppointmentStartHourActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField34ActionPerformed
+    }//GEN-LAST:event_textCancelAppointmentStartHourActionPerformed
 
-    private void jTextField35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField35ActionPerformed
+    private void textCancelAppointmentStartMinuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCancelAppointmentStartMinuteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField35ActionPerformed
+    }//GEN-LAST:event_textCancelAppointmentStartMinuteActionPerformed
 
-    private void jTextField36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField36ActionPerformed
+    private void textCancelAppointmentEndHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCancelAppointmentEndHourActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField36ActionPerformed
+    }//GEN-LAST:event_textCancelAppointmentEndHourActionPerformed
 
-    private void jTextField37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField37ActionPerformed
+    private void textCancelAppointmentEndMinuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCancelAppointmentEndMinuteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField37ActionPerformed
+    }//GEN-LAST:event_textCancelAppointmentEndMinuteActionPerformed
 
     private void menuCancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCancelAppointmentActionPerformed
         // TODO add your handling code here:
          cancelAppointmentDialog.setVisible(true);
+         
     }//GEN-LAST:event_menuCancelAppointmentActionPerformed
 
     private void textLoginUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textLoginUsernameActionPerformed
@@ -1757,6 +1786,70 @@ public class TSSPGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbEditAppointmentNewAppointmentEndPMActionPerformed
 
+    private void buttonCancelAppointmentOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelAppointmentOKActionPerformed
+        // TODO add your handling code here:
+        
+          try
+        {
+            Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+            //Get a connection
+            Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/TheSuperStudentPlannerDB"); 
+            //run create DB only once
+            //createDB(conn);
+            
+            int day = Integer.parseInt(textCancelAppointmentDay.getText());
+            int sHour = Integer.parseInt(textCancelAppointmentStartHour.getText());
+            int sMinute = Integer.parseInt(textCancelAppointmentStartMinute.getText());
+            int eHour = Integer.parseInt(textCancelAppointmentEndHour.getText());
+            int eMinute = Integer.parseInt(textCancelAppointmentEndMinute.getText());
+            String title = textCancelAppointmentTitle.getText();
+            int month = Integer.parseInt(textCancelAppointmentMonth.getText());
+            int year = Integer.parseInt(textCancelAppointmentYear.getText());
+
+            if(rbCancelAppointmentStartAM.isSelected()){
+                if(sHour == 12){
+                    sHour = 0;
+                }
+            }
+            else if(rbCancelAppointmentStartPM.isSelected()){
+                if(sHour!=12){
+                sHour += 12;
+                }
+            }
+            
+            if(rbCancelAppointmentEndAM.isSelected()){
+                if(eHour == 12){
+                    eHour = 0;
+                }
+            }
+            else if(rbCancelAppointmentEndPM.isSelected()){
+                if (eHour!=12){
+                eHour += 12;
+                }
+            }
+            
+            cancelAppointmentDialog.setVisible(false);
+            Appointment app = new Appointment(user.getUsername(), title, day, month, year, sHour, sMinute, eHour, eMinute);
+            user.makeAppt(conn, app);
+            
+            drawTable(startDate, endDate);
+                
+        }
+        catch (Exception except)
+        {
+            except.printStackTrace();
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_buttonCancelAppointmentOKActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        cancelAppointmentDialog.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1821,6 +1914,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancelAppointmentOK;
     private javax.swing.JButton buttonEditAppointmentCancel;
     private javax.swing.JButton buttonEditAppointmentOK;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -1842,6 +1936,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JDialog changeUsernameDialog;
     private javax.swing.JDialog createAccountDialog;
     private javax.swing.JDialog editAppointmentDialog;
+    private javax.swing.JButton jButton1;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1889,21 +1984,9 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JPasswordField jPasswordField4;
     private javax.swing.JPasswordField jPasswordField5;
-    private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JDialog loginDialog;
@@ -1919,6 +2002,10 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuMakeAppointment;
     private javax.swing.JButton okButtonColorScheme;
     private javax.swing.JTable planner;
+    private javax.swing.JRadioButton rbCancelAppointmentEndAM;
+    private javax.swing.JRadioButton rbCancelAppointmentEndPM;
+    private javax.swing.JRadioButton rbCancelAppointmentStartAM;
+    private javax.swing.JRadioButton rbCancelAppointmentStartPM;
     private javax.swing.JRadioButton rbEditAppointmentNewAppointmentEndAM;
     private javax.swing.JRadioButton rbEditAppointmentNewAppointmentEndPM;
     private javax.swing.JRadioButton rbEditAppointmentNewAppointmentStartAM;
@@ -1931,6 +2018,14 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbMakeAppointmentEndPM;
     private javax.swing.JRadioButton rbMakeAppointmentStartAM;
     private javax.swing.JRadioButton rbMakeAppointmentStartPM;
+    private javax.swing.JTextField textCancelAppointmentDay;
+    private javax.swing.JTextField textCancelAppointmentEndHour;
+    private javax.swing.JTextField textCancelAppointmentEndMinute;
+    private javax.swing.JTextField textCancelAppointmentMonth;
+    private javax.swing.JTextField textCancelAppointmentStartHour;
+    private javax.swing.JTextField textCancelAppointmentStartMinute;
+    private javax.swing.JTextField textCancelAppointmentTitle;
+    private javax.swing.JTextField textCancelAppointmentYear;
     private javax.swing.JTextField textEditAppointmentNewAppointmentDay;
     private javax.swing.JTextField textEditAppointmentNewAppointmentEndHour;
     private javax.swing.JTextField textEditAppointmentNewAppointmentEndMinute;
