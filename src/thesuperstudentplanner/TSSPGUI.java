@@ -48,9 +48,14 @@ public class TSSPGUI extends javax.swing.JFrame {
     
     public void drawTable(Calendar calendar, User user, String startDate, String endDate){
         
-        planner = new JTable(calendar.createTableModel(user, startDate, endDate));
+        planner = new JTable();
+        planner.setModel(calendar.createTableModel(user, startDate, endDate));
+        CustomCellRenderer renderer = new CustomCellRenderer(calendar.getColorCell());
+        for(int i = 0; i < planner.getColumnCount(); i++){
+            planner.getColumnModel().getColumn(i).setCellRenderer(renderer);
+        }
         planner.repaint();
-        
+        jScrollPane1.setViewportView(planner);
         
     }
 
