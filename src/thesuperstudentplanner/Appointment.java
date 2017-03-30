@@ -79,7 +79,7 @@ public class Appointment {
     }
     
     public String getDate(){
-        return String.format("%02d-%02d-%02d", year, month, day);
+        return String.format("%04d-%02d-%02d", year, month, day);
     }
     
     public int getSHour(){
@@ -91,11 +91,11 @@ public class Appointment {
     }
     
     public String getStartTime(){
-        return String.format("%02d:%02d", sHour, sMinute);
+        return String.format("%d:%02d", sHour, sMinute);
     }
     
     public String getEndTime(){
-        return String.format("%02d:%02d", eHour, eMinute);
+        return String.format("%d:%02d", eHour, eMinute);
     }
     
     public int getEHour(){

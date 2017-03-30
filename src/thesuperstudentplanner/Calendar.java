@@ -89,7 +89,7 @@ public class Calendar {
               }
                System.out.println("size, row, col " + size + " " + rowIndex + " " + columnIndex);
                table [rowIndex][columnIndex]= app.toString(); 
-               for (int i = 0 ; i< rowIndex + span; i++){ 
+               for (int i = 0 ; i< span; i++){ 
                    colorCell[rowIndex + i][columnIndex]= true; 
                    
                }

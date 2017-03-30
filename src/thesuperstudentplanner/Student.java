@@ -44,17 +44,23 @@ public class Student extends User{
     public boolean makeAppt(Connection conn, Appointment app){
         try {
             Statement stmt = conn.createStatement();
+            System.out.println(app.getDate());
+            System.out.println(app.getStartTime());
+            System.out.println(app.getEndTime());
             
             String cmd = "INSERT INTO appointments "
                 + "VALUES ("
-                + app.getUsername() + ", '"
+                + "'"
                 + app.getTitle() + "', '"
-                + app.getDay() + "', '"
                 + app.getDate() + "', '"
                 + app.getStartTime() + "', '"
-                + app.getEndTime() + "')";
-        
+                + app.getEndTime() + "',"
+                + app.getUsername() + ")";
+            
+            
+           System.out.println("THIS IS THE CMD: " + cmd);
             stmt.execute(cmd);
+         
             return true;
        
         } catch (SQLException ex) {
@@ -80,16 +86,17 @@ public class Student extends User{
             
             String cmd = "UPDATE appointments "
                     + "SET "
-                    + "studentusername = '" + newApp.getUsername() + "', "
                     + "TITLE = '" + newApp.getTitle() + "', "
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
-                    + "ENDTIME = '" + newApp.getEndTime() + "') "
+                    + "ENDTIME = '" + newApp.getEndTime() + "', " 
+                     + "studentusername = '" + newApp.getUsername() + "') "
                     + "WHERE "
                     + "STUDENTUSERNAME = '" + oldApp.getUsername() + "', "
                     + "DATE = '" + oldApp.getDate() + "', "
                     + "STARTTIME = '" + oldApp.getStartTime() + "', "
                     + "ENDTIME = '" + oldApp.getEndTime() + "'";
+                    
             
             stmt.execute(cmd);
             return true;
@@ -119,7 +126,7 @@ public class Student extends User{
                 + "STUDENTUSERNAME = " + getUsername() + " AND "
                 + "DATE >= '" + startDate + "' AND "
                     + "DATE <= '" + endDate + "'";
-        
+            System.out.println("GET CALENDAR RANGE" + cmd);
             ResultSet rs = stmt.executeQuery(cmd);
             
             ArrayList<Appointment> apps = new ArrayList<Appointment>();

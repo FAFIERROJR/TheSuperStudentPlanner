@@ -20,7 +20,7 @@ public class testApp {
     }
     
     private static void testSHour(Appointment app){
-        app.setSHour(10);
+        app.setSHour(8);
         app.setSMinute(39);
         System.out.println(app.getStartTime());
     }
