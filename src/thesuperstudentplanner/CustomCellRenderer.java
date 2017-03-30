@@ -16,10 +16,16 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class CustomCellRenderer extends DefaultTableCellRenderer{
     private boolean matrix[][];
+    private Color color;
+    
+    public void setColor(Color color){
+        this.color = color;
+    }
     
     public CustomCellRenderer (boolean [][] matrix){
+        color = Color.blue;
         this.matrix = matrix;
-        
+      
     }
 
        @Override
@@ -27,7 +33,7 @@ public class CustomCellRenderer extends DefaultTableCellRenderer{
            
         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
         if(matrix[row][col] == true ){
-            cell.setBackground(Color.blue);  
+            cell.setBackground(color);  
         }
         else{
             cell.setBackground(Color.white);

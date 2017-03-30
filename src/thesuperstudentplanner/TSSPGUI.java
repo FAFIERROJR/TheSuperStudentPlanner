@@ -11,6 +11,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import org.joda.time.DateTime;
@@ -25,6 +26,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     private Calendar calendar;
     private String startDate;
     private String endDate;
+    private Color color;
+    
 
     /**
      * Creates new form TSSPGUI
@@ -32,7 +35,9 @@ public class TSSPGUI extends javax.swing.JFrame {
     public TSSPGUI() {
         initComponents();
         calendar = new Calendar();
+        color= Color.blue;
         loginDialog.setVisible(true);
+        
        
         try
         {
@@ -56,6 +61,7 @@ public class TSSPGUI extends javax.swing.JFrame {
         planner = new JTable();
         planner.setModel(calendar.createTableModel(user, startDate, endDate));
         CustomCellRenderer renderer = new CustomCellRenderer(calendar.getColorCell());
+        renderer.setColor(color);
         for(int i = 0; i < planner.getColumnCount(); i++){
             planner.getColumnModel().getColumn(i).setCellRenderer(renderer);
         }
@@ -190,10 +196,11 @@ public class TSSPGUI extends javax.swing.JFrame {
         buttonGroup7 = new javax.swing.ButtonGroup();
         buttonGroup8 = new javax.swing.ButtonGroup();
         changeColorSchemeDialog = new javax.swing.JDialog();
-        jColorChooser1 = new javax.swing.JColorChooser();
+        colorScheme = new javax.swing.JColorChooser();
         jLabel29 = new javax.swing.JLabel();
-        okButtonColorScheme = new javax.swing.JButton();
-        cancelButtonColorScheme = new javax.swing.JButton();
+        buttonColorSchemeOK = new javax.swing.JButton();
+        buttonColorSchemeCancel = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         planner = new javax.swing.JTable();
@@ -1199,17 +1206,17 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jLabel29.setText("Choose a color scheme and select OK.");
 
-        okButtonColorScheme.setText("OK");
-        okButtonColorScheme.addActionListener(new java.awt.event.ActionListener() {
+        buttonColorSchemeOK.setText("OK");
+        buttonColorSchemeOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okButtonColorSchemeActionPerformed(evt);
+                buttonColorSchemeOKActionPerformed(evt);
             }
         });
 
-        cancelButtonColorScheme.setText("Cancel");
-        cancelButtonColorScheme.addActionListener(new java.awt.event.ActionListener() {
+        buttonColorSchemeCancel.setText("Cancel");
+        buttonColorSchemeCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonColorSchemeActionPerformed(evt);
+                buttonColorSchemeCancelActionPerformed(evt);
             }
         });
 
@@ -1219,13 +1226,13 @@ public class TSSPGUI extends javax.swing.JFrame {
             changeColorSchemeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changeColorSchemeDialogLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cancelButtonColorScheme)
+                .addComponent(buttonColorSchemeCancel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(okButtonColorScheme)
+                .addComponent(buttonColorSchemeOK)
                 .addGap(21, 21, 21))
             .addGroup(changeColorSchemeDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(colorScheme, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(changeColorSchemeDialogLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
@@ -1238,12 +1245,23 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addContainerGap(66, Short.MAX_VALUE)
                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(colorScheme, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(changeColorSchemeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(okButtonColorScheme)
-                    .addComponent(cancelButtonColorScheme))
+                    .addComponent(buttonColorSchemeOK)
+                    .addComponent(buttonColorSchemeCancel))
                 .addGap(7, 7, 7))
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1539,11 +1557,11 @@ public class TSSPGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textLoginUsernameActionPerformed
 
-    private void cancelButtonColorSchemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonColorSchemeActionPerformed
+    private void buttonColorSchemeCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonColorSchemeCancelActionPerformed
             // TODO add your handling code here:
             
             changeColorSchemeDialog.setVisible(false);
-    }//GEN-LAST:event_cancelButtonColorSchemeActionPerformed
+    }//GEN-LAST:event_buttonColorSchemeCancelActionPerformed
 
     private void menuChangeColorSchemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuChangeColorSchemeActionPerformed
         // TODO add your handling code here:
@@ -1551,9 +1569,13 @@ public class TSSPGUI extends javax.swing.JFrame {
         changeColorSchemeDialog.setVisible(true);
     }//GEN-LAST:event_menuChangeColorSchemeActionPerformed
 
-    private void okButtonColorSchemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonColorSchemeActionPerformed
+    private void buttonColorSchemeOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonColorSchemeOKActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_okButtonColorSchemeActionPerformed
+       color= colorScheme.getColor();
+       drawTable(startDate,endDate);
+       changeColorSchemeDialog.setVisible(false);
+    
+    }//GEN-LAST:event_buttonColorSchemeOKActionPerformed
 
     private void buttonMakeAppointmentCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMakeAppointmentCancelActionPerformed
         // TODO add your handling code here:
@@ -1924,6 +1946,8 @@ public class TSSPGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancelAppointmentOK;
+    private javax.swing.JButton buttonColorSchemeCancel;
+    private javax.swing.JButton buttonColorSchemeOK;
     private javax.swing.JButton buttonEditAppointmentCancel;
     private javax.swing.JButton buttonEditAppointmentOK;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -1939,14 +1963,14 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonMakeAppointmentCancel;
     private javax.swing.JButton buttonMakeAppointmentMake;
     private javax.swing.JDialog cancelAppointmentDialog;
-    private javax.swing.JButton cancelButtonColorScheme;
     private javax.swing.JDialog changeColorSchemeDialog;
     private javax.swing.JDialog changePasswordDialog;
     private javax.swing.JDialog changeUsernameDialog;
+    private javax.swing.JColorChooser colorScheme;
     private javax.swing.JDialog createAccountDialog;
     private javax.swing.JDialog editAppointmentDialog;
     private javax.swing.JButton jButton1;
-    private javax.swing.JColorChooser jColorChooser1;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2009,7 +2033,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuEditAppointment;
     private javax.swing.JMenuItem menuLogout;
     private javax.swing.JMenuItem menuMakeAppointment;
-    private javax.swing.JButton okButtonColorScheme;
     private javax.swing.JTable planner;
     private javax.swing.JRadioButton rbCancelAppointmentEndAM;
     private javax.swing.JRadioButton rbCancelAppointmentEndPM;
