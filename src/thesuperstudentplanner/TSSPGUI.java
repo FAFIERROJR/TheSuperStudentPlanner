@@ -200,7 +200,18 @@ public class TSSPGUI extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         buttonColorSchemeOK = new javax.swing.JButton();
         buttonColorSchemeCancel = new javax.swing.JButton();
-        jDialog1 = new javax.swing.JDialog();
+        setCalendarRangeDialog = new javax.swing.JDialog();
+        jLabel30 = new javax.swing.JLabel();
+        textSetCalendarRangeStartMonth = new javax.swing.JTextField();
+        textSetCalendarRangeStartDay = new javax.swing.JTextField();
+        textSetCalendarRangeStartYear = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        textSetCalendarRangeEndMonth = new javax.swing.JTextField();
+        textSetCalendarRangeEndDay = new javax.swing.JTextField();
+        textSetCalendarRangeEndYear = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        buttonSetCalendarRangeOK = new javax.swing.JButton();
+        buttonSetCalendarRangeCancel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         planner = new javax.swing.JTable();
@@ -209,10 +220,10 @@ public class TSSPGUI extends javax.swing.JFrame {
         menuMakeAppointment = new javax.swing.JMenuItem();
         menuEditAppointment = new javax.swing.JMenuItem();
         menuCancelAppointment = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        menuSettings = new javax.swing.JMenu();
+        menuSetCalendarRange = new javax.swing.JMenuItem();
         menuChangeColorScheme = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        menuAccount = new javax.swing.JMenu();
         menuCreateAccount = new javax.swing.JMenuItem();
         menuChangeUsername = new javax.swing.JMenuItem();
         menuChangePassword = new javax.swing.JMenuItem();
@@ -1253,15 +1264,119 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addGap(7, 7, 7))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setCalendarRangeDialog.setSize(new java.awt.Dimension(500, 200));
+
+        jLabel30.setText("Select the range of dates to display.");
+
+        textSetCalendarRangeStartMonth.setText("MM");
+        textSetCalendarRangeStartMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSetCalendarRangeStartMonthActionPerformed(evt);
+            }
+        });
+
+        textSetCalendarRangeStartDay.setText("DD");
+
+        textSetCalendarRangeStartYear.setText("YYYY");
+        textSetCalendarRangeStartYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSetCalendarRangeStartYearActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Start Date");
+
+        textSetCalendarRangeEndMonth.setText("MM");
+        textSetCalendarRangeEndMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSetCalendarRangeEndMonthActionPerformed(evt);
+            }
+        });
+
+        textSetCalendarRangeEndDay.setText("DD");
+
+        textSetCalendarRangeEndYear.setText("YYYY");
+        textSetCalendarRangeEndYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSetCalendarRangeEndYearActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setText("End Date");
+
+        buttonSetCalendarRangeOK.setText("OK");
+        buttonSetCalendarRangeOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSetCalendarRangeOKActionPerformed(evt);
+            }
+        });
+
+        buttonSetCalendarRangeCancel.setText("Cancel");
+        buttonSetCalendarRangeCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSetCalendarRangeCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout setCalendarRangeDialogLayout = new javax.swing.GroupLayout(setCalendarRangeDialog.getContentPane());
+        setCalendarRangeDialog.getContentPane().setLayout(setCalendarRangeDialogLayout);
+        setCalendarRangeDialogLayout.setHorizontalGroup(
+            setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                        .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                                .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel32)
+                                    .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                                        .addComponent(textSetCalendarRangeStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(textSetCalendarRangeStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textSetCalendarRangeStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel33)
+                                    .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                                        .addComponent(textSetCalendarRangeEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(textSetCalendarRangeEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(buttonSetCalendarRangeCancel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonSetCalendarRangeOK)
+                            .addComponent(textSetCalendarRangeEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        setCalendarRangeDialogLayout.setVerticalGroup(
+            setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel30)
+                .addGap(12, 12, 12)
+                .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textSetCalendarRangeStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textSetCalendarRangeStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textSetCalendarRangeStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(setCalendarRangeDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textSetCalendarRangeEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textSetCalendarRangeEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textSetCalendarRangeEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(setCalendarRangeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonSetCalendarRangeOK)
+                    .addComponent(buttonSetCalendarRangeCancel))
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1329,15 +1444,15 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAppointments);
 
-        jMenu3.setText("Settings");
+        menuSettings.setText("Settings");
 
-        jMenuItem6.setText("Set Calendar Range");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        menuSetCalendarRange.setText("Set Calendar Range");
+        menuSetCalendarRange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                menuSetCalendarRangeActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem6);
+        menuSettings.add(menuSetCalendarRange);
 
         menuChangeColorScheme.setText("Change Color Scheme");
         menuChangeColorScheme.addActionListener(new java.awt.event.ActionListener() {
@@ -1345,11 +1460,11 @@ public class TSSPGUI extends javax.swing.JFrame {
                 menuChangeColorSchemeActionPerformed(evt);
             }
         });
-        jMenu3.add(menuChangeColorScheme);
+        menuSettings.add(menuChangeColorScheme);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(menuSettings);
 
-        jMenu4.setText("Account");
+        menuAccount.setText("Account");
 
         menuCreateAccount.setText("Create Account");
         menuCreateAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -1357,7 +1472,7 @@ public class TSSPGUI extends javax.swing.JFrame {
                 menuCreateAccountActionPerformed(evt);
             }
         });
-        jMenu4.add(menuCreateAccount);
+        menuAccount.add(menuCreateAccount);
 
         menuChangeUsername.setText("Change Username");
         menuChangeUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -1365,7 +1480,7 @@ public class TSSPGUI extends javax.swing.JFrame {
                 menuChangeUsernameActionPerformed(evt);
             }
         });
-        jMenu4.add(menuChangeUsername);
+        menuAccount.add(menuChangeUsername);
 
         menuChangePassword.setText("Change Password");
         menuChangePassword.addActionListener(new java.awt.event.ActionListener() {
@@ -1373,7 +1488,7 @@ public class TSSPGUI extends javax.swing.JFrame {
                 menuChangePasswordActionPerformed(evt);
             }
         });
-        jMenu4.add(menuChangePassword);
+        menuAccount.add(menuChangePassword);
 
         menuLogout.setText("Log out");
         menuLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -1381,9 +1496,9 @@ public class TSSPGUI extends javax.swing.JFrame {
                 menuLogoutActionPerformed(evt);
             }
         });
-        jMenu4.add(menuLogout);
+        menuAccount.add(menuLogout);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(menuAccount);
 
         jMenu5.setText("Help");
 
@@ -1877,9 +1992,45 @@ public class TSSPGUI extends javax.swing.JFrame {
         cancelAppointmentDialog.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void menuSetCalendarRangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSetCalendarRangeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+        setCalendarRangeDialog.setVisible(true);
+    }//GEN-LAST:event_menuSetCalendarRangeActionPerformed
+
+    private void textSetCalendarRangeStartMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSetCalendarRangeStartMonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSetCalendarRangeStartMonthActionPerformed
+
+    private void textSetCalendarRangeStartYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSetCalendarRangeStartYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSetCalendarRangeStartYearActionPerformed
+
+    private void textSetCalendarRangeEndMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSetCalendarRangeEndMonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSetCalendarRangeEndMonthActionPerformed
+
+    private void textSetCalendarRangeEndYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSetCalendarRangeEndYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSetCalendarRangeEndYearActionPerformed
+
+    private void buttonSetCalendarRangeCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetCalendarRangeCancelActionPerformed
+            // TODO add your handling code here:
+            setCalendarRangeDialog.setVisible(false);
+    }//GEN-LAST:event_buttonSetCalendarRangeCancelActionPerformed
+
+    private void buttonSetCalendarRangeOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetCalendarRangeOKActionPerformed
+        // TODO add your handling code here:
+        String startDay = textSetCalendarRangeStartDay.getText();
+        String startMonth = textSetCalendarRangeStartMonth.getText();
+        String startYear = textSetCalendarRangeStartYear.getText();;
+        
+        String endDay = textSetCalendarRangeEndDay.getText();
+        String endMonth = textSetCalendarRangeEndMonth.getText();
+        String endYear = textSetCalendarRangeEndYear.getText();;
+        
+        drawTable(startYear+"-"+startMonth+"-"+startDay,endYear+"-"+endMonth+"-"+endDay);
+        
+    }//GEN-LAST:event_buttonSetCalendarRangeOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1962,6 +2113,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonLoginLogin;
     private javax.swing.JButton buttonMakeAppointmentCancel;
     private javax.swing.JButton buttonMakeAppointmentMake;
+    private javax.swing.JButton buttonSetCalendarRangeCancel;
+    private javax.swing.JButton buttonSetCalendarRangeOK;
     private javax.swing.JDialog cancelAppointmentDialog;
     private javax.swing.JDialog changeColorSchemeDialog;
     private javax.swing.JDialog changePasswordDialog;
@@ -1970,7 +2123,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JDialog createAccountDialog;
     private javax.swing.JDialog editAppointmentDialog;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1994,18 +2146,18 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2024,6 +2176,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JDialog loginDialog;
     private javax.swing.JDialog makeAppointmentDialog;
+    private javax.swing.JMenu menuAccount;
     private javax.swing.JMenu menuAppointments;
     private javax.swing.JMenuItem menuCancelAppointment;
     private javax.swing.JMenuItem menuChangeColorScheme;
@@ -2033,6 +2186,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuEditAppointment;
     private javax.swing.JMenuItem menuLogout;
     private javax.swing.JMenuItem menuMakeAppointment;
+    private javax.swing.JMenuItem menuSetCalendarRange;
+    private javax.swing.JMenu menuSettings;
     private javax.swing.JTable planner;
     private javax.swing.JRadioButton rbCancelAppointmentEndAM;
     private javax.swing.JRadioButton rbCancelAppointmentEndPM;
@@ -2050,6 +2205,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbMakeAppointmentEndPM;
     private javax.swing.JRadioButton rbMakeAppointmentStartAM;
     private javax.swing.JRadioButton rbMakeAppointmentStartPM;
+    private javax.swing.JDialog setCalendarRangeDialog;
     private javax.swing.JTextField textCancelAppointmentDay;
     private javax.swing.JTextField textCancelAppointmentEndHour;
     private javax.swing.JTextField textCancelAppointmentEndMinute;
@@ -2084,5 +2240,11 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JTextField textMakeAppointmentStartMinute;
     private javax.swing.JTextField textMakeAppointmentTitle;
     private javax.swing.JTextField textMakeAppointmentYear;
+    private javax.swing.JTextField textSetCalendarRangeEndDay;
+    private javax.swing.JTextField textSetCalendarRangeEndMonth;
+    private javax.swing.JTextField textSetCalendarRangeEndYear;
+    private javax.swing.JTextField textSetCalendarRangeStartDay;
+    private javax.swing.JTextField textSetCalendarRangeStartMonth;
+    private javax.swing.JTextField textSetCalendarRangeStartYear;
     // End of variables declaration//GEN-END:variables
 }
