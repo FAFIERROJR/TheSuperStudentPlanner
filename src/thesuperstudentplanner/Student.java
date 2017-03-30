@@ -90,14 +90,14 @@ public class Student extends User{
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
                     + "ENDTIME = '" + newApp.getEndTime() + "', " 
-                     + "studentusername = '" + newApp.getUsername() + "') "
+                     + "studentusername = " + newApp.getUsername() + " "
                     + "WHERE "
-                    + "STUDENTUSERNAME = '" + oldApp.getUsername() + "', "
-                    + "DATE = '" + oldApp.getDate() + "', "
-                    + "STARTTIME = '" + oldApp.getStartTime() + "', "
+                    + "STUDENTUSERNAME = " + oldApp.getUsername() + " AND "
+                    + "DATE = '" + oldApp.getDate() + "' AND "
+                    + "STARTTIME = '" + oldApp.getStartTime() + "' AND "
                     + "ENDTIME = '" + oldApp.getEndTime() + "'";
                     
-            
+            System.out.println(cmd);
             stmt.execute(cmd);
             return true;
         } catch (SQLException ex) {

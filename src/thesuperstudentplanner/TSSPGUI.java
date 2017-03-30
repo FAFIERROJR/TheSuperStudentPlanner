@@ -1739,7 +1739,7 @@ public class TSSPGUI extends javax.swing.JFrame {
             Appointment newAppointment = new Appointment(user.getUsername(), title, day, month, year, sHour, sMinute, eHour, eMinute);
             
         
-            user.changeAppt(conn, oldAppointment, newAppointment);
+            user.changeAppt(conn, newAppointment, oldAppointment);
             
             drawTable(startDate, endDate);
                 
