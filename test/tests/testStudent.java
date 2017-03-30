@@ -27,7 +27,8 @@ public class testStudent {
                
         Student stnt = new Student();
         
-        testMakeApp(stnt, conn);
+        //testMakeApp(stnt, conn);
+        testCancel(stnt, conn);
         
         }
         catch (Exception except)
@@ -51,6 +52,25 @@ public class testStudent {
         String endTime = in.next();
 
         
+    }
+      
+    private static void testCancel(Student stnt, Connection conn){
+ 
+        Scanner in = new Scanner(System.in);
+        System.out.println("Input SID");
+        String sid = in.nextLine();
+        System.out.println("Input title of appointment");
+        String title = in.nextLine();
+        System.out.println("Input date of appointment");
+        String date = in.next();
+        System.out.println("Input start time:");
+        String time = in.next();
+        System.out.println("Input end time:");
+        String endTime = in.next();
+        
+        Appointment app = new Appointment(sid, title, date, time, endTime );
+        
+        stnt.cancelAppt(conn, app);
     }
       
       

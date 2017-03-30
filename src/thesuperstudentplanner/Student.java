@@ -194,4 +194,38 @@ public class Student extends User{
         return false;
     }
     
+    @Override
+    public boolean cancelAppt(Connection conn, Appointment app){
+        try {
+            System.out.println(app.getDate());
+            System.out.println(app.getStartTime());
+            System.out.println(app.getEndTime());
+            
+            String cmd = "DELETE FROM appointments "
+                + "WHERE "
+                    + "title = ? "
+                    + "AND date = ? "
+                    + "AND starttime = ? "
+                    + "AND endtime = ? "
+                    + "AND studentusername = ? ";
+            
+            System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
+            PreparedStatement pstmt = conn.prepareStatement(cmd);
+
+                pstmt.setString(1, app.getTitle());
+                pstmt.setString(2, app.getDate());
+                pstmt.setString(3, app.getStartTime());
+                pstmt.setString(4, app.getEndTime());
+                pstmt.setString(5, app.getUsername());
+           
+           pstmt.execute();
+         
+            return true;
+       
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
 }

@@ -99,5 +99,7 @@ public abstract class User {
      */
     public abstract boolean createAccount(Connection conn, String name, String username, ArrayList<String> newClasses);
     
+    public abstract boolean cancelAppt(Connection conn, Appointment app);
+    
     
 }
