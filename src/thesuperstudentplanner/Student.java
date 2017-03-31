@@ -156,7 +156,7 @@ public class Student extends User{
      * @return
      */
     @Override
-    public  boolean changePassword(Connection conn, String oldPassword, String newPassword){
+    public  boolean changeUsername(Connection conn, String password, String newUsername){
         try {
             Statement stmt = conn.createStatement();
             
@@ -165,11 +165,24 @@ public class Student extends User{
                     + "WHERE STUDENTUSERNAME = " + getUsername();
             
             ResultSet rs = stmt.executeQuery(query);
-            
-            if(rs.getString("PASSWORD") == oldPassword){
-                query = "UPDATE students "
-                        + "SET password = '" + newPassword + "' "
+            rs.next();
+            System.out.println(password +"    "+ rs.getString("PASSWORD"));
+            if(rs.getString("PASSWORD").equals(password)){
+                
+                 query = "UPDATE appointments "
+                        + "SET studentusername = '" + newUsername + "' "
                         + "WHERE STUDENTUSERNAME =" + getUsername() + "";
+                System.out.println(query);
+                stmt.execute(query);
+        
+                query = "UPDATE students "
+                        + "SET studentusername = '" + newUsername + "' "
+                        + "WHERE STUDENTUSERNAME =" + getUsername() + "";
+                System.out.println(query);
+                stmt.execute(query);
+                
+                setUsername(newUsername);
+                
             }
             
             return true;
