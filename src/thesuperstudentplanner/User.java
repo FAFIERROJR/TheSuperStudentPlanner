@@ -89,6 +89,8 @@ public abstract class User {
      */
     public abstract boolean changeUsername(Connection conn, String password, String newUsername);
     
+    public abstract boolean changePassword(Connection conn, String oldPassword, String newPassword);
+    
     /**
      *
      * @param conn              connection to database

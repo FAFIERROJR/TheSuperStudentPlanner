@@ -168,6 +168,19 @@ public class Student extends User{
             rs.next();
             System.out.println(password +"    "+ rs.getString("PASSWORD"));
             if(rs.getString("PASSWORD").equals(password)){
+                query = "SELECT * FROM students "
+                        + "WHERE STUDENTUSERNAME =" + getUsername() + "";
+                System.out.println(query);
+                ResultSet rsOldUsername = stmt.executeQuery(query);
+                rsOldUsername.next();
+                
+                query = "INSERT INTO students "
+                        + "VALUES ( '" + newUsername + "', "
+                        + "'" + rsOldUsername.getString("firstname") + "', "
+                        + "'" + rsOldUsername.getString("lastname")  + "', "
+                        + "'" + rsOldUsername.getString("password") + "')";
+                System.out.println(query);
+                stmt.execute(query);
                 
                  query = "UPDATE appointments "
                         + "SET studentusername = '" + newUsername + "' "
@@ -175,8 +188,7 @@ public class Student extends User{
                 System.out.println(query);
                 stmt.execute(query);
         
-                query = "UPDATE students "
-                        + "SET studentusername = '" + newUsername + "' "
+                query = "DELETE FROM students "
                         + "WHERE STUDENTUSERNAME =" + getUsername() + "";
                 System.out.println(query);
                 stmt.execute(query);
@@ -241,5 +253,31 @@ public class Student extends User{
             return false;
         }
     }
-    
+
+    @Override
+    public  boolean changePassword(Connection conn, String oldPassword, String newPassword){
+        try {
+            Statement stmt = conn.createStatement();
+            
+            String query = "SELECT password "
+                    + "FROM STUDENTS "
+                    + "WHERE studentUSERNAME = " + getUsername();
+            
+            ResultSet rs = stmt.executeQuery(query);
+            rs.next();
+            if(rs.getString("PASSWORD").equals(oldPassword)){
+                query = "UPDATE students "
+                        + "SET password = '" + newPassword + "' "
+                        + "WHERE studentUSERNAME =" + getUsername() + "";
+            }
+            
+            stmt.execute(query);
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return true;
+    }
 }

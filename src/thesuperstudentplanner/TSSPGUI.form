@@ -281,10 +281,17 @@
                       </Group>
                       <EmptySpace pref="54" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPasswordField4" pref="211" max="32767" attributes="0"/>
-                          <Component id="jPasswordField3" max="32767" attributes="0"/>
+                          <Component id="textChangePasswordNewPassword" pref="211" max="32767" attributes="0"/>
+                          <Component id="textChangePasswordOldPassword" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="78" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="buttonChangePasswordCancel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonChangePasswordOK" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -294,14 +301,19 @@
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPasswordField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textChangePasswordOldPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPasswordField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textChangePasswordNewPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="133" max="32767" attributes="0"/>
+                      <EmptySpace pref="95" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="buttonChangePasswordOK" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonChangePasswordCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -317,15 +329,31 @@
                 <Property name="text" type="java.lang.String" value="New Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField3">
+            <Component class="javax.swing.JPasswordField" name="textChangePasswordOldPassword">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jPasswordField3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField4">
+            <Component class="javax.swing.JPasswordField" name="textChangePasswordNewPassword">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jPasswordField3"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonChangePasswordOK">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="OK"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonChangePasswordOKActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonChangePasswordCancel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancel"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonChangePasswordCancelActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

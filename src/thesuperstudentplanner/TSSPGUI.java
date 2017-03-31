@@ -102,8 +102,10 @@ public class TSSPGUI extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        jPasswordField4 = new javax.swing.JPasswordField();
+        textChangePasswordOldPassword = new javax.swing.JPasswordField();
+        textChangePasswordNewPassword = new javax.swing.JPasswordField();
+        buttonChangePasswordOK = new javax.swing.JButton();
+        buttonChangePasswordCancel = new javax.swing.JButton();
         changeUsernameDialog = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         textChangeUsernameNewUsername = new javax.swing.JTextField();
@@ -401,9 +403,23 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jLabel9.setText("New Password");
 
-        jPasswordField3.setText("jPasswordField3");
+        textChangePasswordOldPassword.setText("jPasswordField3");
 
-        jPasswordField4.setText("jPasswordField3");
+        textChangePasswordNewPassword.setText("jPasswordField3");
+
+        buttonChangePasswordOK.setText("OK");
+        buttonChangePasswordOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonChangePasswordOKActionPerformed(evt);
+            }
+        });
+
+        buttonChangePasswordCancel.setText("Cancel");
+        buttonChangePasswordCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonChangePasswordCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -416,9 +432,15 @@ public class TSSPGUI extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField4, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                    .addComponent(jPasswordField3))
+                    .addComponent(textChangePasswordNewPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                    .addComponent(textChangePasswordOldPassword))
                 .addContainerGap(78, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonChangePasswordCancel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonChangePasswordOK)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,12 +448,16 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textChangePasswordOldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jPasswordField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                    .addComponent(textChangePasswordNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonChangePasswordOK)
+                    .addComponent(buttonChangePasswordCancel))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout changePasswordDialogLayout = new javax.swing.GroupLayout(changePasswordDialog.getContentPane());
@@ -2106,6 +2132,46 @@ public class TSSPGUI extends javax.swing.JFrame {
        
     }//GEN-LAST:event_buttonChangeUsernameOKActionPerformed
 
+    private void buttonChangePasswordOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChangePasswordOKActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+            //Get a connection
+            Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/TheSuperStudentPlannerDB"); 
+            //run create DB only once
+            //createDB(conn);
+            
+            char[] oldPasswordChar = textChangePasswordOldPassword.getPassword();
+            String oldPasswordString = "";
+            for(int i = 0; i < oldPasswordChar.length; i++){
+                oldPasswordString += oldPasswordChar[i];
+            }
+            
+            char[] newPasswordChar = textChangePasswordNewPassword.getPassword();
+            String newPasswordString = "";
+            for(int i = 0; i < newPasswordChar.length; i++){
+                newPasswordString += newPasswordChar[i];
+            }
+            
+            user.changePassword(conn, oldPasswordString, newPasswordString);
+            
+            changePasswordDialog.setVisible(false);
+            
+                
+        }
+        catch (Exception except)
+        {
+            except.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_buttonChangePasswordOKActionPerformed
+
+    private void buttonChangePasswordCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChangePasswordCancelActionPerformed
+        // TODO add your handling code here:
+        changePasswordDialog.setVisible(false);
+    }//GEN-LAST:event_buttonChangePasswordCancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2171,6 +2237,8 @@ public class TSSPGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancelAppointmentOK;
+    private javax.swing.JButton buttonChangePasswordCancel;
+    private javax.swing.JButton buttonChangePasswordOK;
     private javax.swing.JButton buttonChangeUsernameCancel;
     private javax.swing.JButton buttonChangeUsernameOK;
     private javax.swing.JButton buttonColorSchemeCancel;
@@ -2243,8 +2311,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField3;
-    private javax.swing.JPasswordField jPasswordField4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -2289,6 +2355,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JTextField textCancelAppointmentStartMinute;
     private javax.swing.JTextField textCancelAppointmentTitle;
     private javax.swing.JTextField textCancelAppointmentYear;
+    private javax.swing.JPasswordField textChangePasswordNewPassword;
+    private javax.swing.JPasswordField textChangePasswordOldPassword;
     private javax.swing.JTextField textChangeUsernameNewUsername;
     private javax.swing.JPasswordField textChangeUsernamePassword;
     private javax.swing.JTextField textEditAppointmentNewAppointmentDay;

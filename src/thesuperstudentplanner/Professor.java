@@ -19,6 +19,10 @@ import java.util.logging.Logger;
  * @author Francisco
  */
 public class Professor extends User{
+
+    /**
+     *
+     */
     public Professor(){}
     
     public Professor(String username){
@@ -141,23 +145,23 @@ public class Professor extends User{
      * @param newPassword      user's new password
      * @return
      */
-    @Override
     public  boolean changePassword(Connection conn, String oldPassword, String newPassword){
         try {
             Statement stmt = conn.createStatement();
             
             String query = "SELECT password "
-                    + "FROM STUDENTS "
+                    + "FROM professors "
                     + "WHERE PROFUSERNAME = " + getUsername();
             
             ResultSet rs = stmt.executeQuery(query);
-            
-            if(rs.getString("PASSWORD") == oldPassword){
+            rs.next();
+            if(rs.getString("PASSWORD").equals(oldPassword)){
                 query = "UPDATE professors "
                         + "SET password = '" + newPassword + "' "
                         + "WHERE PROFUSERNAME =" + getUsername() + "";
             }
             
+            stmt.execute(query);
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
@@ -232,6 +236,11 @@ public class Professor extends User{
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+
+    @Override
+    public boolean changeUsername(Connection conn, String password, String newUsername) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
