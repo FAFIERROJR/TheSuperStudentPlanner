@@ -1893,15 +1893,50 @@ public class TSSPGUI extends javax.swing.JFrame {
                 loginDialog.setVisible(false);
                 
             }
-            if(user!=null){
+            if (user != null) {
                 DateTime now = new DateTime();
                 startDate = now.toLocalDate().toString("yyyy-MM-dd");
                 endDate = now.toLocalDate().plusDays(6).toString("yyyy-MM-dd");
-                
+
                 System.out.println(startDate);
                 System.out.println(endDate);
-                
-                drawTable(startDate, endDate);
+
+                if (user instanceof Student) {
+                    drawTable(startDate, endDate);
+                } else {
+                    DateTime currentDate = new DateTime();
+                    Object table[][] = new String[48][8];
+                    Object titles[] = new String[8];
+                    for (int i = 0; i < 8; i++) { //(0,0) cell is null. start at 1
+                        if (i == 0) {
+                            titles[i] = "Time";
+                        } else {
+                            titles[i] = currentDate.toString("MM/dd/yyyy"); //set the start day
+                            currentDate = currentDate.plusDays(1); //increment to the next day
+                        }
+                    }
+
+                    for (int i = 0; i < 48; i++) {
+                        if (i % 2 == 0) {
+
+                            if (i == 0) {
+                                table[i][0] = "12 AM";
+                            }
+                            if (i < 24 && i != 0) {
+                                table[i][0] = Integer.toString(i / 2);
+                                table[i][0] += " AM";
+                            }
+                            if (i == 24) {
+
+                                table[i][0] = "12 PM";
+                            }
+                            if (i > 24) {
+                                table[i][0] = Integer.toString(i / 2 - 12);
+                                table[i][0] += "PM ";
+                            }
+                        }
+                    }
+                }
                 
                 
             }
