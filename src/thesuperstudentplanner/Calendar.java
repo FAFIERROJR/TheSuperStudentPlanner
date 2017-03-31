@@ -30,12 +30,13 @@ public class Calendar {
 }
    
    
-   public DefaultTableModel createTableModel(User user, String startDate, String endDate){
+   public DefaultTableModel createTableModel(User user, String startDate, String endDate, String classNm){
        try
         {
             Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
              //Get a connection
             Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/TheSuperStudentPlannerDB"); 
+            className = classNm;
             ArrayList <Appointment> apps = user.getCalendarRange(conn, startDate, endDate,className);
            
             int size = 0;

@@ -27,6 +27,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private String startDate;
     private String endDate;
     private Color color;
+    private String className;
     
 
     /**
@@ -36,7 +37,11 @@ public class TSSPGUI extends javax.swing.JFrame {
         initComponents();
         calendar = new Calendar();
         color= Color.blue;
+        className = null;
         loginDialog.setVisible(true);
+        if(user instanceof Professor){
+            getClassDialog.setVisible(true);
+        }
         
        
         try
@@ -59,7 +64,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     public void drawTable(String startDate, String endDate){
         
         planner = new JTable();
-        planner.setModel(calendar.createTableModel(user, startDate, endDate));
+        planner.setModel(calendar.createTableModel(user, startDate, endDate, className));
         CustomCellRenderer renderer = new CustomCellRenderer(calendar.getColorCell());
         renderer.setColor(color);
         for(int i = 0; i < planner.getColumnCount(); i++){
@@ -219,6 +224,15 @@ public class TSSPGUI extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         buttonSetCalendarRangeOK = new javax.swing.JButton();
         buttonSetCalendarRangeCancel = new javax.swing.JButton();
+        getClassDialog = new javax.swing.JDialog(this, true);
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        textGetClassClass = new javax.swing.JTextField();
+        buttonGetClassOK = new javax.swing.JButton();
+        buttonGetClassCancel = new javax.swing.JButton();
+        cannotCreateAccountDialog = new javax.swing.JDialog();
+        jLabel36 = new javax.swing.JLabel();
+        cannotCreateAccountOk = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         planner = new javax.swing.JTable();
@@ -1467,6 +1481,100 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getClassDialog.setSize(new java.awt.Dimension(450, 350));
+
+        jLabel34.setText("Please enter the class to load");
+
+        jLabel35.setText("ClassName");
+
+        textGetClassClass.setText("[CECS 343]");
+
+        buttonGetClassOK.setText("OK");
+        buttonGetClassOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGetClassOKActionPerformed(evt);
+            }
+        });
+
+        buttonGetClassCancel.setText("Cancel");
+        buttonGetClassCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGetClassCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout getClassDialogLayout = new javax.swing.GroupLayout(getClassDialog.getContentPane());
+        getClassDialog.getContentPane().setLayout(getClassDialogLayout);
+        getClassDialogLayout.setHorizontalGroup(
+            getClassDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(getClassDialogLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel35)
+                .addGap(18, 18, 18)
+                .addComponent(textGetClassClass, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                .addGap(98, 98, 98))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, getClassDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(getClassDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, getClassDialogLayout.createSequentialGroup()
+                        .addComponent(buttonGetClassCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonGetClassOK)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, getClassDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel34)
+                        .addGap(109, 109, 109))))
+        );
+        getClassDialogLayout.setVerticalGroup(
+            getClassDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(getClassDialogLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel34)
+                .addGap(57, 57, 57)
+                .addGroup(getClassDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(textGetClassClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(getClassDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonGetClassOK)
+                    .addComponent(buttonGetClassCancel))
+                .addContainerGap())
+        );
+
+        cannotCreateAccountDialog.setSize(new java.awt.Dimension(450, 200));
+
+        jLabel36.setText("Students cannot create accounts!");
+
+        cannotCreateAccountOk.setText("OK");
+        cannotCreateAccountOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cannotCreateAccountOkActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cannotCreateAccountDialogLayout = new javax.swing.GroupLayout(cannotCreateAccountDialog.getContentPane());
+        cannotCreateAccountDialog.getContentPane().setLayout(cannotCreateAccountDialogLayout);
+        cannotCreateAccountDialogLayout.setHorizontalGroup(
+            cannotCreateAccountDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cannotCreateAccountDialogLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jLabel36)
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cannotCreateAccountDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cannotCreateAccountOk)
+                .addContainerGap())
+        );
+        cannotCreateAccountDialogLayout.setVerticalGroup(
+            cannotCreateAccountDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cannotCreateAccountDialogLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jLabel36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(cannotCreateAccountOk)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setSize(new java.awt.Dimension(800, 600));
@@ -1827,11 +1935,11 @@ public class TSSPGUI extends javax.swing.JFrame {
                 }
             }
             
-            makeAppointmentDialog.setVisible(false);
             Appointment app = new Appointment(user.getUsername(), title, day, month, year, sHour, sMinute, eHour, eMinute);
             user.makeAppt(conn, app);
-            
+
             drawTable(startDate, endDate);
+            makeAppointmentDialog.setVisible(false);
                 
         }
         catch (Exception except)
@@ -1877,7 +1985,6 @@ public class TSSPGUI extends javax.swing.JFrame {
             
             if(sturs.next()){
                 user = new Student(username);
-                loginDialog.setVisible(false);
                 System.out.println("true");
                 
             }
@@ -1890,7 +1997,6 @@ public class TSSPGUI extends javax.swing.JFrame {
             
             if(profrs.next()){
                 user = new Professor(username);
-                loginDialog.setVisible(false);
                 
             }
             if (user != null) {
@@ -1903,40 +2009,47 @@ public class TSSPGUI extends javax.swing.JFrame {
 
                 if (user instanceof Student) {
                     drawTable(startDate, endDate);
+                    loginDialog.setVisible(false);
                 } else {
-                    DateTime currentDate = new DateTime();
-                    Object table[][] = new String[48][8];
-                    Object titles[] = new String[8];
-                    for (int i = 0; i < 8; i++) { //(0,0) cell is null. start at 1
-                        if (i == 0) {
-                            titles[i] = "Time";
-                        } else {
-                            titles[i] = currentDate.toString("MM/dd/yyyy"); //set the start day
-                            currentDate = currentDate.plusDays(1); //increment to the next day
-                        }
-                    }
-
-                    for (int i = 0; i < 48; i++) {
-                        if (i % 2 == 0) {
-
-                            if (i == 0) {
-                                table[i][0] = "12 AM";
-                            }
-                            if (i < 24 && i != 0) {
-                                table[i][0] = Integer.toString(i / 2);
-                                table[i][0] += " AM";
-                            }
-                            if (i == 24) {
-
-                                table[i][0] = "12 PM";
-                            }
-                            if (i > 24) {
-                                table[i][0] = Integer.toString(i / 2 - 12);
-                                table[i][0] += "PM ";
-                            }
-                        }
-                    }
-                }
+                    loginDialog.setVisible(false);
+                    
+//                    DateTime currentDate = new DateTime();
+//                    Object table[][] = new String[48][8];
+//                    Object titles[] = new String[8];
+//                    for (int i = 0; i < 8; i++) { //(0,0) cell is null. start at 1
+//                        if (i == 0) {
+//                            titles[i] = "Time";
+//                        } else {
+//                            titles[i] = currentDate.toString("MM/dd/yyyy"); //set the start day
+//                            currentDate = currentDate.plusDays(1); //increment to the next day
+//                        }
+//                    }
+//
+//                    for (int i = 0; i < 48; i++) {
+//                        if (i % 2 == 0) {
+//
+//                            if (i == 0) {
+//                                table[i][0] = "12 AM";
+//                            }
+//                            if (i < 24 && i != 0) {
+//                                table[i][0] = Integer.toString(i / 2);
+//                                table[i][0] += " AM";
+//                            }
+//                            if (i == 24) {
+//
+//                                table[i][0] = "12 PM";
+//                            }
+//                            if (i > 24) {
+//                                table[i][0] = Integer.toString(i / 2 - 12);
+//                                table[i][0] += "PM ";
+//                            }
+//                        }
+//                        
+//                    }
+//                    planner = new JTable(table, titles);
+//                    planner.repaint();
+//                    jScrollPane1.setViewportView(planner);
+                 }
                 
                 
             }
@@ -2151,8 +2264,16 @@ public class TSSPGUI extends javax.swing.JFrame {
         String endMonth = textSetCalendarRangeEndMonth.getText();
         String endYear = textSetCalendarRangeEndYear.getText();;
         
-        drawTable(startYear+"-"+startMonth+"-"+startDay,endYear+"-"+endMonth+"-"+endDay);
+        startDate = startYear+"-"+startMonth+"-"+startDay;
+        endDate = endYear+"-"+endMonth+"-"+endDay;
         
+        if(user instanceof Professor){
+                getClassDialog.setVisible(true);
+        }else{
+            drawTable(startDate,endDate);
+        }
+        
+        setCalendarRangeDialog.setVisible(false);
     }//GEN-LAST:event_buttonSetCalendarRangeOKActionPerformed
 
     private void buttonChangeUsernameCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChangeUsernameCancelActionPerformed
@@ -2235,11 +2356,64 @@ public class TSSPGUI extends javax.swing.JFrame {
 
     private void buttonCreateAccountCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateAccountCancelActionPerformed
         // TODO add your handling code here:
+        createAccountDialog.setVisible(false);
     }//GEN-LAST:event_buttonCreateAccountCancelActionPerformed
 
     private void buttonCreateAccountOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateAccountOKActionPerformed
         // TODO add your handling code here:
+        
+        try
+        {
+            Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+            //Get a connection
+            Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/TheSuperStudentPlannerDB"); 
+            //run create DB only once
+            //createDB(conn);
+          
+            if (user instanceof Student) {
+                cannotCreateAccountDialog.setVisible(true);
+
+            } else {
+                String username = textCreateAccountUsername.getText();
+                String fName = textCreateAccountFirstName.getText();
+                String lName = textCreateAccountLastName.getText();
+                char[] passwordChar = textCreateAccountPassword.getPassword();
+                String passwordString = "";
+
+                for (int i = 0; i < passwordChar.length; i++) {
+                    passwordString += passwordChar[i];
+                }
+
+                user.createAccount(conn, username, fName, lName, passwordString, null);
+            }
+            
+                
+        }
+        catch (Exception except)
+        {
+            except.printStackTrace();
+        }
+        
     }//GEN-LAST:event_buttonCreateAccountOKActionPerformed
+
+    private void buttonGetClassOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGetClassOKActionPerformed
+        // TODO add your handling code here:
+        className = textGetClassClass.getText();
+        drawTable(startDate, endDate);
+        
+        getClassDialog.setVisible(false);
+        
+    }//GEN-LAST:event_buttonGetClassOKActionPerformed
+
+    private void buttonGetClassCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGetClassCancelActionPerformed
+        // TODO add your handling code here:
+        getClassDialog.setVisible(false);
+    }//GEN-LAST:event_buttonGetClassCancelActionPerformed
+
+    private void cannotCreateAccountOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cannotCreateAccountOkActionPerformed
+        // TODO add your handling code here:
+        cannotCreateAccountDialog.setVisible(false);
+    }//GEN-LAST:event_cannotCreateAccountOkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2316,6 +2490,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonCreateAccountOK;
     private javax.swing.JButton buttonEditAppointmentCancel;
     private javax.swing.JButton buttonEditAppointmentOK;
+    private javax.swing.JButton buttonGetClassCancel;
+    private javax.swing.JButton buttonGetClassOK;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -2331,12 +2507,15 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonSetCalendarRangeCancel;
     private javax.swing.JButton buttonSetCalendarRangeOK;
     private javax.swing.JDialog cancelAppointmentDialog;
+    private javax.swing.JDialog cannotCreateAccountDialog;
+    private javax.swing.JButton cannotCreateAccountOk;
     private javax.swing.JDialog changeColorSchemeDialog;
     private javax.swing.JDialog changePasswordDialog;
     private javax.swing.JDialog changeUsernameDialog;
     private javax.swing.JColorChooser colorScheme;
     private javax.swing.JDialog createAccountDialog;
     private javax.swing.JDialog editAppointmentDialog;
+    private javax.swing.JDialog getClassDialog;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2365,6 +2544,9 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2446,6 +2628,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JTextField textEditAppointmentOldAppointmentStartMinute;
     private javax.swing.JTextField textEditAppointmentOldAppointmentTitle;
     private javax.swing.JTextField textEditAppointmentOldAppointmentYear;
+    private javax.swing.JTextField textGetClassClass;
     private javax.swing.JPasswordField textLoginPassword;
     private javax.swing.JTextField textLoginUsername;
     private javax.swing.JTextField textMakeAppointmentDay;

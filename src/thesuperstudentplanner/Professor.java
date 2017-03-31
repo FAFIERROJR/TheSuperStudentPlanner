@@ -41,16 +41,24 @@ public class Professor extends User{
         try {
             Statement stmt = conn.createStatement();
             
-            String cmd = "INSERT INTO appointments "
-                + "VALUES ("
-                
-                + app.getTitle() + "', '"
-                + app.getDate() + "', '"
-                + app.getStartTime() + "', '"
-                + app.getEndTime() + ", '"
-                + app.getUsername() + "')";
-        
-            stmt.execute(cmd);
+            String cmd = "SELECT username FROM appointments "
+                    + "WHERE "
+                    + "title = '" + app.getTitle() +"'";
+            
+            ResultSet rs = stmt.executeQuery(cmd);
+            
+            while(rs.next()){
+                cmd = "INSERT INTO appointments "
+                    + "VALUES ("
+
+                    + app.getTitle() + "', '"
+                    + app.getDate() + "', '"
+                    + app.getStartTime() + "', '"
+                    + app.getEndTime() + ", '"
+                    + rs.getString("username") + "')";
+
+                stmt.execute(cmd);
+            }
             return true;
        
         } catch (SQLException ex) {
@@ -110,18 +118,16 @@ public class Professor extends User{
     public  ArrayList<Appointment> getCalendarRange(Connection conn, String startDate, String endDate, String className){
         try {
             Statement stmt = conn.createStatement();
-            
+            ArrayList<Appointment> apps = new ArrayList<>();
             String cmd = "SELECT DISTINCT title, date, starttime, endtime "
                 + "FROM appointments "
                 + "WHERE "
                 + "DATE >= '" + startDate + "' AND "
-                + "DATE <= '" + endDate + "' AND '"
+                + "DATE <= '" + endDate + "' AND "
                + "title = '" + className + "' ";
             System.out.println(cmd);
             ResultSet rs = stmt.executeQuery(cmd);
-            
-            ArrayList<Appointment> apps = new ArrayList<Appointment>();
-            
+                 
             while(rs.next()){
                 apps.add(new Appointment(
                     null,
@@ -130,8 +136,9 @@ public class Professor extends User{
                     rs.getString("STARTTIME"),
                     rs.getString("ENDTIME")
                 ));
-            return apps;
+                
             }
+            return apps;
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
