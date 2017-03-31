@@ -44,9 +44,7 @@ public class Student extends User{
     public boolean makeAppt(Connection conn, Appointment app){
         try {
             Statement stmt = conn.createStatement();
-            System.out.println(app.getDate());
-            System.out.println(app.getStartTime());
-            System.out.println(app.getEndTime());
+            
             
             String cmd = "INSERT INTO appointments "
                 + "VALUES ("
@@ -58,7 +56,7 @@ public class Student extends User{
                 + app.getUsername() + ")";
             
             
-           System.out.println("THIS IS THE CMD: " + cmd);
+           
             stmt.execute(cmd);
          
             return true;
@@ -97,7 +95,7 @@ public class Student extends User{
                     + "STARTTIME = '" + oldApp.getStartTime() + "' AND "
                     + "ENDTIME = '" + oldApp.getEndTime() + "'";
                     
-            System.out.println(cmd);
+          
             stmt.execute(cmd);
             return true;
         } catch (SQLException ex) {
@@ -126,7 +124,7 @@ public class Student extends User{
                 + "STUDENTUSERNAME = " + getUsername() + " AND "
                 + "DATE >= '" + startDate + "' AND "
                     + "DATE <= '" + endDate + "'";
-            System.out.println("GET CALENDAR RANGE" + cmd);
+            
             ResultSet rs = stmt.executeQuery(cmd);
             
             ArrayList<Appointment> apps = new ArrayList<Appointment>();
@@ -214,7 +212,7 @@ public class Student extends User{
      * @return
      */
     @Override
-    public  boolean createAccount(Connection conn, String name, String username, ArrayList<String> newClasses){
+    public  boolean createAccount(Connection conn, String firstName, String lastName, String password, String username, ArrayList<String> newClasses){
         System.out.println("No!...Stop it!");
         return false;
     }
@@ -232,18 +230,18 @@ public class Student extends User{
                     + "AND date = ? "
                     + "AND starttime = ? "
                     + "AND endtime = ? "
-                    + "AND studentusername = ? ";
+                    + "AND studentusername =  " + app.getUsername();
             
-            System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
+            
             PreparedStatement pstmt = conn.prepareStatement(cmd);
 
                 pstmt.setString(1, app.getTitle());
                 pstmt.setString(2, app.getDate());
                 pstmt.setString(3, app.getStartTime());
                 pstmt.setString(4, app.getEndTime());
-                pstmt.setString(5, app.getUsername());
                 
-           System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
+                
+           
            pstmt.execute();
          
             return true;

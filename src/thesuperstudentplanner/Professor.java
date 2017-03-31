@@ -43,11 +43,12 @@ public class Professor extends User{
             
             String cmd = "INSERT INTO appointments "
                 + "VALUES ("
-                + app.getUsername() + ", '"
+                
                 + app.getTitle() + "', '"
                 + app.getDate() + "', '"
                 + app.getStartTime() + "', '"
-                + app.getEndTime() + "')";
+                + app.getEndTime() + ", '"
+                + app.getUsername() + "')";
         
             stmt.execute(cmd);
             return true;
@@ -81,11 +82,11 @@ public class Professor extends User{
                     + "TITLE = '" + newApp.getTitle() + "', "
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
-                    + "ENDTIME = '" + newApp.getEndTime() + "') "
+                    + "ENDTIME = '" + newApp.getEndTime() + "' "
                     + "WHERE "
 //                    + "STUDENTUSERNAME = '" + oldApp.getUsername() + "', "
-                    + "DATE = '" + oldApp.getDate() + "', "
-                    + "STARTTIME = '" + oldApp.getStartTime() + "', "
+                    + "DATE = '" + oldApp.getDate() + "' AND "
+                    + "STARTTIME = '" + oldApp.getStartTime() + "' AND "
                     + "ENDTIME = '" + oldApp.getEndTime() + "'";
             
             stmt.execute(cmd);
@@ -110,18 +111,18 @@ public class Professor extends User{
         try {
             Statement stmt = conn.createStatement();
             
-            String cmd = "SELECT DISTINCT title, day, date, starttime, endtime"
+            String cmd = "SELECT DISTINCT title, date, starttime, endtime "
                 + "FROM appointments "
                 + "WHERE "
                 + "DATE >= '" + startDate + "' AND "
-                + "ENDDATE <= '" + endDate + "'";
+                + "DATE <= '" + endDate + "'";
 //                + "title = '" + className + "' ";
-        
+            System.out.println(cmd);
             ResultSet rs = stmt.executeQuery(cmd);
             
             ArrayList<Appointment> apps = new ArrayList<Appointment>();
             
-            do{
+            while(rs.next()){
                 apps.add(new Appointment(
                     null,
                     rs.getString("TITLE"),
@@ -130,7 +131,7 @@ public class Professor extends User{
                     rs.getString("ENDTIME")
                 ));
             return apps;
-            }while(rs.next());
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -179,14 +180,19 @@ public class Professor extends User{
      * @return
      */
     @Override
-    public  boolean createAccount(Connection conn, String name, String username, ArrayList<String> newClasses){
+    public  boolean createAccount(Connection conn, String firstName, String lastName, String password, String username, ArrayList<String> newClasses){
         try {
             Statement stmt = conn.createStatement();
             
             String query = "INSERT INTO students "
                     + "values ('"
                     + username + "', '"
-                    + name +  "'";
+                    + firstName +  "', '"
+                    + lastName + "', '"
+                    + password + "'";
+                    
+                    
+                    
             
             stmt.execute(query);
             
@@ -219,7 +225,7 @@ public class Professor extends User{
                     + "AND starttime = ? "
                     + "AND endtime = ? ";
             
-            System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
+            
             PreparedStatement pstmt = conn.prepareStatement(cmd);
 
                 pstmt.setString(1, app.getTitle());
@@ -227,7 +233,7 @@ public class Professor extends User{
                 pstmt.setString(3, app.getStartTime());
                 pstmt.setString(4, app.getEndTime());
                 
-           System.out.println("THIS IS THE CANCEL APPT CMD: " + cmd);
+           
            pstmt.execute();
          
             return true;
@@ -240,7 +246,51 @@ public class Professor extends User{
 
     @Override
     public boolean changeUsername(Connection conn, String password, String newUsername) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try {
+            Statement stmt = conn.createStatement();
+            
+            String query = "SELECT password "
+                    + "FROM PROFESSORS "
+                    + "WHERE PROFUSERNAME = " + getUsername();
+            
+            ResultSet rs = stmt.executeQuery(query);
+            rs.next();
+            System.out.println(password +"    "+ rs.getString("PASSWORD"));
+            if(rs.getString("PASSWORD").equals(password)){
+                query = "SELECT * FROM professors "
+                        + "WHERE PROFUSERNAME =" + getUsername() + "";
+                System.out.println(query);
+                ResultSet rsOldUsername = stmt.executeQuery(query);
+                rsOldUsername.next();
+                
+                query = "INSERT INTO professors "
+                        + "VALUES ( '" + newUsername + "', "
+                        + "'" + rsOldUsername.getString("firstname") + "', "
+                        + "'" + rsOldUsername.getString("lastname")  + "', "
+                        + "'" + rsOldUsername.getString("password") + "')";
+                System.out.println(query);
+                stmt.execute(query);
+                
+          
+                query = "DELETE FROM professors "
+                        + "WHERE PROFUSERNAME =" + getUsername() + "";
+                System.out.println(query);
+                stmt.execute(query);
+                
+                setUsername(newUsername);
+                
+            }
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return false;
+        
+        
+        
+        
     }
     
 }

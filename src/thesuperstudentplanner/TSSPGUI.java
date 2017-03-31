@@ -90,14 +90,16 @@ public class TSSPGUI extends javax.swing.JFrame {
         buttonLoginLogin = new javax.swing.JButton();
         createAccountDialog = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        textCreateAccountUsername = new javax.swing.JTextField();
+        textCreateAccountFirstName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        textCreateAccountLastName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        textCreateAccountPassword = new javax.swing.JPasswordField();
+        buttonCreateAccountOK = new javax.swing.JButton();
+        buttonCreateAccountCancel = new javax.swing.JButton();
         changePasswordDialog = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -320,14 +322,14 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         createAccountDialog.setSize(new java.awt.Dimension(550, 250));
 
-        jTextField3.setText("[JaneDoe]");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        textCreateAccountUsername.setText("[JaneDoe]");
+        textCreateAccountUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                textCreateAccountUsernameActionPerformed(evt);
             }
         });
 
-        jTextField4.setText("[Jane]");
+        textCreateAccountFirstName.setText("[Jane]");
 
         jLabel1.setText("Username");
 
@@ -335,11 +337,25 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jLabel5.setText("Last Name");
 
-        jTextField5.setText("[Doe]");
+        textCreateAccountLastName.setText("[Doe]");
 
         jLabel7.setText("Password");
 
-        jPasswordField2.setText("jPasswordField2");
+        textCreateAccountPassword.setText("jPasswordField2");
+
+        buttonCreateAccountOK.setText("OK");
+        buttonCreateAccountOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCreateAccountOKActionPerformed(evt);
+            }
+        });
+
+        buttonCreateAccountCancel.setText("Cancel");
+        buttonCreateAccountCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCreateAccountCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -355,32 +371,42 @@ public class TSSPGUI extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
+                    .addComponent(textCreateAccountUsername)
+                    .addComponent(textCreateAccountFirstName)
+                    .addComponent(textCreateAccountLastName)
+                    .addComponent(textCreateAccountPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
                 .addGap(67, 67, 67))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonCreateAccountCancel)
+                .addGap(18, 18, 18)
+                .addComponent(buttonCreateAccountOK)
+                .addGap(45, 45, 45))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCreateAccountUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textCreateAccountFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textCreateAccountLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addComponent(textCreateAccountPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCreateAccountOK)
+                    .addComponent(buttonCreateAccountCancel))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout createAccountDialogLayout = new javax.swing.GroupLayout(createAccountDialog.getContentPane());
@@ -1595,9 +1621,9 @@ public class TSSPGUI extends javax.swing.JFrame {
         makeAppointmentDialog.setVisible(true);
     }//GEN-LAST:event_menuMakeAppointmentActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void textCreateAccountUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCreateAccountUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_textCreateAccountUsernameActionPerformed
 
     private void menuCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCreateAccountActionPerformed
         // TODO add your handling code here:
@@ -2172,6 +2198,14 @@ public class TSSPGUI extends javax.swing.JFrame {
         changePasswordDialog.setVisible(false);
     }//GEN-LAST:event_buttonChangePasswordCancelActionPerformed
 
+    private void buttonCreateAccountCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateAccountCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCreateAccountCancelActionPerformed
+
+    private void buttonCreateAccountOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateAccountOKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCreateAccountOKActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2243,6 +2277,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonChangeUsernameOK;
     private javax.swing.JButton buttonColorSchemeCancel;
     private javax.swing.JButton buttonColorSchemeOK;
+    private javax.swing.JButton buttonCreateAccountCancel;
+    private javax.swing.JButton buttonCreateAccountOK;
     private javax.swing.JButton buttonEditAppointmentCancel;
     private javax.swing.JButton buttonEditAppointmentOK;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -2310,11 +2346,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JDialog loginDialog;
     private javax.swing.JDialog makeAppointmentDialog;
     private javax.swing.JMenu menuAccount;
@@ -2359,6 +2391,10 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField textChangePasswordOldPassword;
     private javax.swing.JTextField textChangeUsernameNewUsername;
     private javax.swing.JPasswordField textChangeUsernamePassword;
+    private javax.swing.JTextField textCreateAccountFirstName;
+    private javax.swing.JTextField textCreateAccountLastName;
+    private javax.swing.JPasswordField textCreateAccountPassword;
+    private javax.swing.JTextField textCreateAccountUsername;
     private javax.swing.JTextField textEditAppointmentNewAppointmentDay;
     private javax.swing.JTextField textEditAppointmentNewAppointmentEndHour;
     private javax.swing.JTextField textEditAppointmentNewAppointmentEndMinute;

@@ -99,7 +99,7 @@ public abstract class User {
      * @param newClasses        classes of new account owner
      * @return
      */
-    public abstract boolean createAccount(Connection conn, String name, String username, ArrayList<String> newClasses);
+    public abstract boolean createAccount(Connection conn, String firstName,String lastName, String username, String password, ArrayList<String> newClasses);
     
     public abstract boolean cancelAppt(Connection conn, Appointment app);
     
