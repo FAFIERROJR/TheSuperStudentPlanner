@@ -101,12 +101,14 @@ public class Calendar {
            titles = new String[size];
            LocalDate currentDate = sDate;
            
-           for( int i = 1; i < size ; i++ ) { //(0,0) cell is null. start at 1
+           for( int i = 0; i < size ; i++ ) { //(0,0) cell is null. start at 1
                if(i == 0){
                    titles[i] = "Time";
                }
-               titles[i] = currentDate.toString("MM/dd/yyyy"); //set the start day
-               currentDate = currentDate.plusDays(1); //increment to the next day
+               else{
+                titles[i] = currentDate.toString("MM/dd/yyyy"); //set the start day
+                currentDate = currentDate.plusDays(1); //increment to the next day
+               }
            }
            
            for(int i = 0; i < 48; i++){

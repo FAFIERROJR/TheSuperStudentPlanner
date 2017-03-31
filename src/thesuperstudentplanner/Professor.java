@@ -115,8 +115,8 @@ public class Professor extends User{
                 + "FROM appointments "
                 + "WHERE "
                 + "DATE >= '" + startDate + "' AND "
-                + "DATE <= '" + endDate + "'";
-//                + "title = '" + className + "' ";
+                + "DATE <= '" + endDate + "' AND '"
+               + "title = '" + className + "' ";
             System.out.println(cmd);
             ResultSet rs = stmt.executeQuery(cmd);
             
