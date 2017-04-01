@@ -2385,6 +2385,7 @@ public class TSSPGUI extends javax.swing.JFrame {
                 }
 
                 user.createAccount(conn, username, fName, lName, passwordString, null);
+                createAccountDialog.setVisible(false);
             }
             
                 

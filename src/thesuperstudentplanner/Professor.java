@@ -41,7 +41,7 @@ public class Professor extends User{
         try {
             Statement stmt = conn.createStatement();
             
-            String cmd = "SELECT username FROM appointments "
+            String cmd = "SELECT studentusername FROM appointments "
                     + "WHERE "
                     + "title = '" + app.getTitle() +"'";
             
@@ -49,13 +49,13 @@ public class Professor extends User{
             
             while(rs.next()){
                 cmd = "INSERT INTO appointments "
-                    + "VALUES ("
+                    + "VALUES ('"
 
                     + app.getTitle() + "', '"
                     + app.getDate() + "', '"
                     + app.getStartTime() + "', '"
-                    + app.getEndTime() + ", '"
-                    + rs.getString("username") + "')";
+                    + app.getEndTime() + "', '"
+                    + rs.getString("studentusername") + "')";
 
                 stmt.execute(cmd);
             }
@@ -196,7 +196,7 @@ public class Professor extends User{
                     + username + "', '"
                     + firstName +  "', '"
                     + lastName + "', '"
-                    + password + "'";
+                    + password + "')";
                     
                     
                     
