@@ -233,6 +233,12 @@ public class TSSPGUI extends javax.swing.JFrame {
         cannotCreateAccountDialog = new javax.swing.JDialog();
         jLabel36 = new javax.swing.JLabel();
         cannotCreateAccountOk = new javax.swing.JButton();
+        aboutDialog = new javax.swing.JDialog();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        buttonAboutDialogGoBack = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         planner = new javax.swing.JTable();
@@ -250,7 +256,7 @@ public class TSSPGUI extends javax.swing.JFrame {
         menuChangePassword = new javax.swing.JMenuItem();
         menuLogout = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuHelp = new javax.swing.JMenuItem();
 
         loginDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         loginDialog.setTitle("Login to The Super Student Planner");
@@ -1575,6 +1581,61 @@ public class TSSPGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        aboutDialog.setSize(new java.awt.Dimension(500, 300));
+
+        jTextField1.setText("The Super Student Planner");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setText("About This Application");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("The Super Student Planner will be available for use by CSULB students \non the Mac and Windows platforms. Each user will have their own\nrecords of their appointments and schedules, as they enter such \ndata into the planner over time. Users will be able to enter minimal\ninformation for an appointment, but will also have the option to enter\nsupplementary data to aid in their preparation for the event.The planner \nwill work independently of other applications.");
+        jTextArea1.setSize(new java.awt.Dimension(500, 120));
+        jScrollPane2.setViewportView(jTextArea1);
+
+        buttonAboutDialogGoBack.setText("Go Back");
+        buttonAboutDialogGoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAboutDialogGoBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout aboutDialogLayout = new javax.swing.GroupLayout(aboutDialog.getContentPane());
+        aboutDialog.getContentPane().setLayout(aboutDialogLayout);
+        aboutDialogLayout.setHorizontalGroup(
+            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
+            .addGroup(aboutDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonAboutDialogGoBack)
+                    .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        aboutDialogLayout.setVerticalGroup(
+            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutDialogLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addComponent(buttonAboutDialogGoBack)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setSize(new java.awt.Dimension(800, 600));
@@ -1698,8 +1759,13 @@ public class TSSPGUI extends javax.swing.JFrame {
 
         jMenu5.setText("Help");
 
-        jMenuItem1.setText("About");
-        jMenu5.add(jMenuItem1);
+        menuHelp.setText("About");
+        menuHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuHelpActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuHelp);
 
         jMenuBar1.add(jMenu5);
 
@@ -2416,6 +2482,20 @@ public class TSSPGUI extends javax.swing.JFrame {
         cannotCreateAccountDialog.setVisible(false);
     }//GEN-LAST:event_cannotCreateAccountOkActionPerformed
 
+    private void menuHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHelpActionPerformed
+        // TODO add your handling code here:
+        aboutDialog.setVisible(true);
+    }//GEN-LAST:event_menuHelpActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void buttonAboutDialogGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAboutDialogGoBackActionPerformed
+        // TODO add your handling code here:
+        aboutDialog.setVisible(false);
+    }//GEN-LAST:event_buttonAboutDialogGoBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2480,6 +2560,8 @@ public class TSSPGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog aboutDialog;
+    private javax.swing.JButton buttonAboutDialogGoBack;
     private javax.swing.JButton buttonCancelAppointmentOK;
     private javax.swing.JButton buttonChangePasswordCancel;
     private javax.swing.JButton buttonChangePasswordOK;
@@ -2556,7 +2638,6 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2565,6 +2646,10 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JDialog loginDialog;
     private javax.swing.JDialog makeAppointmentDialog;
     private javax.swing.JMenu menuAccount;
@@ -2575,6 +2660,7 @@ public class TSSPGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuChangeUsername;
     private javax.swing.JMenuItem menuCreateAccount;
     private javax.swing.JMenuItem menuEditAppointment;
+    private javax.swing.JMenuItem menuHelp;
     private javax.swing.JMenuItem menuLogout;
     private javax.swing.JMenuItem menuMakeAppointment;
     private javax.swing.JMenuItem menuSetCalendarRange;
