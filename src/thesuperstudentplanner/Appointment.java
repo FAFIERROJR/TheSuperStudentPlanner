@@ -147,11 +147,44 @@ public class Appointment {
     public void setUsername(String id){
         username = id;
     }
-    @Override
+    
     public String toString(){
         
         return title;
     }
+    
+    /**
+     * This method returns the value of the start hour regular time from the military time.
+     * @return the start hour
+     */
+    public int getStartHour12(){
+        
+        if (sHour > 12){
+            return sHour - 12;
+        }
+        
+        if(sHour == 0){
+            return 12;
+        }
+
+    return sHour;    
+    }
+    
+    /**
+     * This method returns the value of the end hour regular time from the military time.
+     * @return 
+     */
+    public int getEndHour12(){
+     if (eHour > 12){
+            return eHour - 12;
+        }
+        
+        if(eHour == 0){
+            return 12;
+        }
+
+    return eHour;  
+     }
 
     
 }

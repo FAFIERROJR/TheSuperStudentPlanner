@@ -52,8 +52,8 @@ public class Student extends User{
                 + app.getTitle() + "', '"
                 + app.getDate() + "', '"
                 + app.getStartTime() + "', '"
-                + app.getEndTime() + "',"
-                + app.getUsername() + ")";
+                + app.getEndTime() + "', '"
+                + app.getUsername() + "')";
             
             
            
@@ -88,14 +88,14 @@ public class Student extends User{
                     + "DATE = '" + newApp.getDate() + "', "
                     + "STARTTIME = '" + newApp.getStartTime() + "', "
                     + "ENDTIME = '" + newApp.getEndTime() + "', " 
-                     + "studentusername = " + newApp.getUsername() + " "
+                    + "studentusername = '" + newApp.getUsername() + "' "
                     + "WHERE "
-                    + "STUDENTUSERNAME = " + oldApp.getUsername() + " AND "
+                    + "STUDENTUSERNAME = '" + oldApp.getUsername() + "' AND "
                     + "DATE = '" + oldApp.getDate() + "' AND "
                     + "STARTTIME = '" + oldApp.getStartTime() + "' AND "
                     + "ENDTIME = '" + oldApp.getEndTime() + "'";
                     
-          
+          System.out.println(cmd);
             stmt.execute(cmd);
             return true;
         } catch (SQLException ex) {
@@ -121,7 +121,7 @@ public class Student extends User{
             String cmd = "SELECT * "
                 + "FROM appointments "
                 + "WHERE "
-                + "STUDENTUSERNAME = " + getUsername() + " AND "
+                + "STUDENTUSERNAME = '" + getUsername() + "' AND "
                 + "DATE >= '" + startDate + "' AND "
                     + "DATE <= '" + endDate + "'";
             
@@ -160,14 +160,14 @@ public class Student extends User{
             
             String query = "SELECT password "
                     + "FROM STUDENTS "
-                    + "WHERE STUDENTUSERNAME = " + getUsername();
+                    + "WHERE STUDENTUSERNAME = '" + getUsername() + "'";
             
             ResultSet rs = stmt.executeQuery(query);
             rs.next();
             System.out.println(password +"    "+ rs.getString("PASSWORD"));
             if(rs.getString("PASSWORD").equals(password)){
                 query = "SELECT * FROM students "
-                        + "WHERE STUDENTUSERNAME =" + getUsername() + "";
+                        + "WHERE STUDENTUSERNAME = '" + getUsername() + "'";
                 System.out.println(query);
                 ResultSet rsOldUsername = stmt.executeQuery(query);
                 rsOldUsername.next();
@@ -182,12 +182,12 @@ public class Student extends User{
                 
                  query = "UPDATE appointments "
                         + "SET studentusername = '" + newUsername + "' "
-                        + "WHERE STUDENTUSERNAME =" + getUsername() + "";
+                        + "WHERE STUDENTUSERNAME = '" + getUsername() + "'";
                 System.out.println(query);
                 stmt.execute(query);
         
                 query = "DELETE FROM students "
-                        + "WHERE STUDENTUSERNAME =" + getUsername() + "";
+                        + "WHERE STUDENTUSERNAME ='" + getUsername() + "'";
                 System.out.println(query);
                 stmt.execute(query);
                 
@@ -230,7 +230,7 @@ public class Student extends User{
                     + "AND date = ? "
                     + "AND starttime = ? "
                     + "AND endtime = ? "
-                    + "AND studentusername =  " + app.getUsername();
+                    + "AND studentusername =  '" + app.getUsername() + "'";
             
             
             PreparedStatement pstmt = conn.prepareStatement(cmd);
@@ -259,14 +259,14 @@ public class Student extends User{
             
             String query = "SELECT password "
                     + "FROM STUDENTS "
-                    + "WHERE studentUSERNAME = " + getUsername();
+                    + "WHERE studentUSERNAME = '" + getUsername() + "'";
             
             ResultSet rs = stmt.executeQuery(query);
             rs.next();
             if(rs.getString("PASSWORD").equals(oldPassword)){
                 query = "UPDATE students "
                         + "SET password = '" + newPassword + "' "
-                        + "WHERE studentUSERNAME =" + getUsername() + "";
+                        + "WHERE studentUSERNAME = '" + getUsername() + "'";
             }
             
             stmt.execute(query);

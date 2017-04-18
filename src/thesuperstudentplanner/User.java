@@ -29,7 +29,7 @@ public abstract class User {
      * @return
      */
     public String getUsername(){
-        return String.format("'%s'", username);
+        return String.format("%s", username);
     }
    
     /**
