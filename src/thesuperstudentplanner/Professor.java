@@ -166,7 +166,7 @@ public class Professor extends User{
             if(rs.getString("PASSWORD").equals(oldPassword)){
                 query = "UPDATE professors "
                         + "SET password = '" + newPassword + "' "
-                        + "WHERE PROFUSERNAME =" + getUsername() + "";
+                        + "WHERE PROFUSERNAME = '" + getUsername() + "'";
             }
             
             stmt.execute(query);
@@ -258,14 +258,14 @@ public class Professor extends User{
             
             String query = "SELECT password "
                     + "FROM PROFESSORS "
-                    + "WHERE PROFUSERNAME = " + getUsername();
+                    + "WHERE PROFUSERNAME = '" + getUsername() + "'";
             
             ResultSet rs = stmt.executeQuery(query);
             rs.next();
             System.out.println(password +"    "+ rs.getString("PASSWORD"));
             if(rs.getString("PASSWORD").equals(password)){
                 query = "SELECT * FROM professors "
-                        + "WHERE PROFUSERNAME =" + getUsername() + "";
+                        + "WHERE PROFUSERNAME = '" + getUsername() + "'";
                 System.out.println(query);
                 ResultSet rsOldUsername = stmt.executeQuery(query);
                 rsOldUsername.next();
@@ -280,7 +280,7 @@ public class Professor extends User{
                 
           
                 query = "DELETE FROM professors "
-                        + "WHERE PROFUSERNAME =" + getUsername() + "";
+                        + "WHERE PROFUSERNAME = '" + getUsername() + "'";
                 System.out.println(query);
                 stmt.execute(query);
                 
