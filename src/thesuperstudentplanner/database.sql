@@ -42,6 +42,7 @@ INSERT INTO students
     ('irvinmiller', 'Irvin', 'Miller', 'password'),
     ('lindsayparsons', 'Lindsay', 'Parsons', 'password'),
     ('jamiereed', 'Jamie', 'Reed', 'password');
+ 
 
 INSERT INTO professors
     VALUES ('feihoffman', 'Fei', 'Hoffman', 'password');
