@@ -498,6 +498,9 @@
     </Container>
     <Container class="javax.swing.JDialog" name="makeAppointmentDialog">
       <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[32767, 32767]"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[660, 470]"/>
         </Property>
@@ -509,60 +512,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="58" max="32767" attributes="0"/>
-                  <Component id="checkBoxMakeAppointmentMonday" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="checkBoxMakeAppointmentTuesday" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="checkBoxMakeAppointmentWednesday" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="checkBoxMakeAppointmentThursday" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="checkBoxMakeAppointmentFriday" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="checkBoxMakeAppointmentSaturday" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="checkBoxMakeAppointmentSunday" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="buttonMakeAppointmentCancel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonMakeAppointmentMake" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="51" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="checkBoxMakeAppointmentMonday" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxMakeAppointmentTuesday" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxMakeAppointmentWednesday" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxMakeAppointmentThursday" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxMakeAppointmentFriday" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxMakeAppointmentSaturday" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBoxMakeAppointmentSunday" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonMakeAppointmentCancel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonMakeAppointmentMake" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                  <Component id="jPanel5" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -574,64 +534,95 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="466" max="32767" attributes="0"/>
+                              <Component id="buttonMakeAppointmentCancel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="buttonMakeAppointmentMake" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="textMakeAppointmentStartHour" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="textMakeAppointmentStartMinute" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="comboBoxMakeAppointmentStartHour" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="comboBoxMakeAppointmentStartMinute" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                                                      <Component id="comboBoxMakeAppointmentEndHour" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                      <Component id="comboBoxMakeAppointmentEndMinute" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="textMakeAppointmentTitle" min="-2" pref="178" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="comboBoxMakeAppointmentMonth" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="comboBoxMakeAppointmentDay" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="comboBoxMakeAppointmentYear" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="rbMakeAppointmentStartAM" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="rbMakeAppointmentStartPM" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="checkBoxMakeAppointmentRepeating" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="checkBoxMakeAppointmentMonday" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="checkBoxMakeAppointmentTuesday" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="checkBoxMakeAppointmentWednesday" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Component id="checkBoxMakeAppointmentThursday" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkBoxMakeAppointmentFriday" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkBoxMakeAppointmentSaturday" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkBoxMakeAppointmentSunday" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="textMakeAppointmentEndHour" min="-2" pref="50" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textMakeAppointmentEndMinute" min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="rbMakeAppointmentEndAM" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="rbMakeAppointmentEndPM" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="checkBoxMakeAppointmentRepeating" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="textMakeAppointmentTitle" min="-2" pref="178" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField3" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="checkBoxMakeAppointment10Minutes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textMakeAppointmentMonth" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="checkBoxMakeAppointment30Minutes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="checkBoxMakeAppointment1Hour" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="textMakeAppointmentDay" min="-2" pref="50" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="textMakeAppointmentYear" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="checkBoxMakeAppointment1Day" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -646,43 +637,55 @@
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="textMakeAppointmentTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textMakeAppointmentMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textMakeAppointmentYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textMakeAppointmentDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboBoxMakeAppointmentMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboBoxMakeAppointmentDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboBoxMakeAppointmentYear" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textMakeAppointmentStartHour" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textMakeAppointmentStartMinute" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMakeAppointmentStartHour" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMakeAppointmentStartMinute" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textMakeAppointmentEndHour" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textMakeAppointmentEndMinute" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMakeAppointmentEndHour" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboBoxMakeAppointmentEndMinute" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="rbMakeAppointmentEndAM" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rbMakeAppointmentEndPM" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="rbMakeAppointmentStartAM" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rbMakeAppointmentStartPM" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="47" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="checkBoxMakeAppointmentRepeating" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkBoxMakeAppointmentTuesday" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointmentWednesday" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointmentThursday" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointmentFriday" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointmentSaturday" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointmentSunday" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointmentMonday" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkBoxMakeAppointment10Minutes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointment30Minutes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointment1Hour" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkBoxMakeAppointment1Day" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="buttonMakeAppointmentMake" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonMakeAppointmentCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -708,94 +711,9 @@
                 <Property name="text" type="java.lang.String" value="Date"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="textMakeAppointmentDay">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="DD"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textMakeAppointmentMonth">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="MM"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentMonthActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textMakeAppointmentYear">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="YYYY"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentYearActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textMakeAppointmentStartHour">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="HH"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentStartHourActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textMakeAppointmentStartMinute">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="MM"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentStartMinuteActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
                 <Property name="text" type="java.lang.String" value="End Time"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textMakeAppointmentEndHour">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="HH"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentEndHourActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textMakeAppointmentEndMinute">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="MM"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMakeAppointmentEndMinuteActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="rbMakeAppointmentStartAM">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="AM"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="rbMakeAppointmentStartPM">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="PM"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="rbMakeAppointmentEndAM">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="AM"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="rbMakeAppointmentEndPM">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup2"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="PM"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentRepeating">
@@ -806,59 +724,278 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxMakeAppointmentRepeatingActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxMakeAppointmentDay">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="32">
+                    <StringItem index="0" value="Day"/>
+                    <StringItem index="1" value="1"/>
+                    <StringItem index="2" value="2"/>
+                    <StringItem index="3" value="3"/>
+                    <StringItem index="4" value="4"/>
+                    <StringItem index="5" value="5"/>
+                    <StringItem index="6" value="6"/>
+                    <StringItem index="7" value="7"/>
+                    <StringItem index="8" value="8"/>
+                    <StringItem index="9" value="9"/>
+                    <StringItem index="10" value="10"/>
+                    <StringItem index="11" value="11"/>
+                    <StringItem index="12" value="12"/>
+                    <StringItem index="13" value="13"/>
+                    <StringItem index="14" value="14"/>
+                    <StringItem index="15" value="15"/>
+                    <StringItem index="16" value="16"/>
+                    <StringItem index="17" value="17"/>
+                    <StringItem index="18" value="18"/>
+                    <StringItem index="19" value="19"/>
+                    <StringItem index="20" value="20"/>
+                    <StringItem index="21" value="21"/>
+                    <StringItem index="22" value="22"/>
+                    <StringItem index="23" value="23"/>
+                    <StringItem index="24" value="24"/>
+                    <StringItem index="25" value="25"/>
+                    <StringItem index="26" value="26"/>
+                    <StringItem index="27" value="27"/>
+                    <StringItem index="28" value="28"/>
+                    <StringItem index="29" value="29"/>
+                    <StringItem index="30" value="30"/>
+                    <StringItem index="31" value="31"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxMakeAppointmentDayActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxMakeAppointmentMonth">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="13">
+                    <StringItem index="0" value="Month"/>
+                    <StringItem index="1" value="1"/>
+                    <StringItem index="2" value="2"/>
+                    <StringItem index="3" value="3"/>
+                    <StringItem index="4" value="4"/>
+                    <StringItem index="5" value="5"/>
+                    <StringItem index="6" value="6"/>
+                    <StringItem index="7" value="7"/>
+                    <StringItem index="8" value="8"/>
+                    <StringItem index="9" value="9"/>
+                    <StringItem index="10" value="10"/>
+                    <StringItem index="11" value="11"/>
+                    <StringItem index="12" value="12"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxMakeAppointmentYear">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Year"/>
+                    <StringItem index="1" value="2017"/>
+                    <StringItem index="2" value="2018"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxMakeAppointmentStartHour">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="26">
+                    <StringItem index="0" value="Hour"/>
+                    <StringItem index="1" value="12 am "/>
+                    <StringItem index="2" value="1 am "/>
+                    <StringItem index="3" value="2 am "/>
+                    <StringItem index="4" value="3 am "/>
+                    <StringItem index="5" value="4 am"/>
+                    <StringItem index="6" value="5 am "/>
+                    <StringItem index="7" value="6 am "/>
+                    <StringItem index="8" value="7 am "/>
+                    <StringItem index="9" value="8 am "/>
+                    <StringItem index="10" value="9 am "/>
+                    <StringItem index="11" value="10 am "/>
+                    <StringItem index="12" value="11 am "/>
+                    <StringItem index="13" value="12 pm "/>
+                    <StringItem index="14" value="1 pm "/>
+                    <StringItem index="15" value="2 pm "/>
+                    <StringItem index="16" value="3 pm"/>
+                    <StringItem index="17" value="4 pm"/>
+                    <StringItem index="18" value="5 pm"/>
+                    <StringItem index="19" value="6 pm "/>
+                    <StringItem index="20" value="7 pm"/>
+                    <StringItem index="21" value="8 pm"/>
+                    <StringItem index="22" value="9 pm "/>
+                    <StringItem index="23" value="10 pm "/>
+                    <StringItem index="24" value="11 pm "/>
+                    <StringItem index="25" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxMakeAppointmentStartMinute">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Minute"/>
+                    <StringItem index="1" value="00"/>
+                    <StringItem index="2" value="30"/>
+                    <StringItem index="3" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxMakeAppointmentEndHour">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="26">
+                    <StringItem index="0" value="Hour"/>
+                    <StringItem index="1" value="12 am "/>
+                    <StringItem index="2" value="1 am "/>
+                    <StringItem index="3" value="2 am "/>
+                    <StringItem index="4" value="3 am "/>
+                    <StringItem index="5" value="4 am"/>
+                    <StringItem index="6" value="5 am "/>
+                    <StringItem index="7" value="6 am "/>
+                    <StringItem index="8" value="7 am "/>
+                    <StringItem index="9" value="8 am "/>
+                    <StringItem index="10" value="9 am "/>
+                    <StringItem index="11" value="10 am "/>
+                    <StringItem index="12" value="11 am "/>
+                    <StringItem index="13" value="12 pm "/>
+                    <StringItem index="14" value="1 pm "/>
+                    <StringItem index="15" value="2 pm "/>
+                    <StringItem index="16" value="3 pm"/>
+                    <StringItem index="17" value="4 pm"/>
+                    <StringItem index="18" value="5 pm"/>
+                    <StringItem index="19" value="6 pm "/>
+                    <StringItem index="20" value="7 pm"/>
+                    <StringItem index="21" value="8 pm"/>
+                    <StringItem index="22" value="9 pm "/>
+                    <StringItem index="23" value="10 pm "/>
+                    <StringItem index="24" value="11 pm "/>
+                    <StringItem index="25" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxMakeAppointmentEndMinute">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Minute"/>
+                    <StringItem index="1" value="00"/>
+                    <StringItem index="2" value="30"/>
+                    <StringItem index="3" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentFriday">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Friday"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentSaturday">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Saturday"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentSunday">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sunday"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentThursday">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Thursday"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentTuesday">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tuesday"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentWednesday">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Wednesday"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentMonday">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Monday"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxMakeAppointmentMondayActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonMakeAppointmentMake">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Make"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMakeAppointmentMakeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonMakeAppointmentCancel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancel"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMakeAppointmentCancelActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Set Reminders"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointment10Minutes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="10 minutes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointment1Hour">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="1 hour"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointment30Minutes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="30 minutes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointment1Day">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="1 day"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="buttonMakeAppointmentCancel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cancel"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMakeAppointmentCancelActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="buttonMakeAppointmentMake">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Make"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMakeAppointmentMakeActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentWednesday">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="W"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentTuesday">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="T"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentMonday">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="M"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentThursday">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Th"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentFriday">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="F"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentSaturday">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sat"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointmentSunday">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sun"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
