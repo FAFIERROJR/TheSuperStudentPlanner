@@ -614,7 +614,6 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField3" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="checkBoxMakeAppointment10Minutes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -624,6 +623,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="checkBoxMakeAppointment1Day" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -672,9 +672,9 @@
                           <Component id="checkBoxMakeAppointmentSunday" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="checkBoxMakeAppointmentMonday" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="jLabel19" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="checkBoxMakeAppointment10Minutes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="checkBoxMakeAppointment30Minutes" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -966,14 +966,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMakeAppointmentCancelActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Set Reminders"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointment10Minutes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="10 minutes"/>
@@ -992,6 +984,11 @@
             <Component class="javax.swing.JCheckBox" name="checkBoxMakeAppointment1Day">
               <Properties>
                 <Property name="text" type="java.lang.String" value="1 day"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel19">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Set Reminders"/>
               </Properties>
             </Component>
           </SubComponents>
