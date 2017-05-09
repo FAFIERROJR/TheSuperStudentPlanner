@@ -19,6 +19,7 @@ import javax.swing.event.ListSelectionEvent;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import static org.joda.time.LocalDate.*;
+import org.joda.time.LocalTime;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
@@ -42,18 +43,19 @@ public class TSSPGUI extends javax.swing.JFrame{
      * Creates new form TSSPGUI
      */
     public TSSPGUI() {
-        SchedulerFactory schedFact = new org.quartz.impl.StdSchedulerFactory();
-        Scheduler sched = null;
-        try {
-            sched = schedFact.getScheduler();
-        } catch (SchedulerException ex) {
-            Logger.getLogger(TSSPGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            sched.start();
-        } catch (SchedulerException ex) {
-            Logger.getLogger(TSSPGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        SchedulerFactory schedFact = new org.quartz.impl.StdSchedulerFactory();
+//        Scheduler sched = null;
+//        try {
+//            sched = schedFact.getScheduler();
+//        } catch (SchedulerException ex) {
+//            Logger.getLogger(TSSPGUI.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        try {
+//            sched.start();
+//        } catch (SchedulerException ex) {
+//            Logger.getLogger(TSSPGUI.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
         initComponents();
         calendar = new Calendar();
         color= Color.blue;
@@ -195,11 +197,11 @@ public class TSSPGUI extends javax.swing.JFrame{
         checkBoxMakeAppointmentMonday = new javax.swing.JCheckBox();
         buttonMakeAppointmentMake = new javax.swing.JButton();
         buttonMakeAppointmentCancel = new javax.swing.JButton();
-        checkBoxMakeAppointment10Minutes = new javax.swing.JCheckBox();
         checkBoxMakeAppointment1Hour = new javax.swing.JCheckBox();
         checkBoxMakeAppointment30Minutes = new javax.swing.JCheckBox();
         checkBoxMakeAppointment1Day = new javax.swing.JCheckBox();
         jLabel19 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         editAppointmentDialog = new javax.swing.JDialog();
@@ -648,8 +650,6 @@ public class TSSPGUI extends javax.swing.JFrame{
                 .addGap(18, 18, 18))
         );
 
-        makeAppointmentDialog.setMaximumSize(new java.awt.Dimension(32767, 32767));
-        makeAppointmentDialog.setPreferredSize(new java.awt.Dimension(660, 470));
         makeAppointmentDialog.setSize(new java.awt.Dimension(660, 470));
 
         jLabel11.setText("Title");
@@ -721,15 +721,15 @@ public class TSSPGUI extends javax.swing.JFrame{
             }
         });
 
-        checkBoxMakeAppointment10Minutes.setText("10 minutes");
-
         checkBoxMakeAppointment1Hour.setText("1 hour");
 
         checkBoxMakeAppointment30Minutes.setText("30 minutes");
 
         checkBoxMakeAppointment1Day.setText("1 day");
 
-        jLabel19.setText("Set Reminders");
+        jLabel19.setText("Set Reminders Via: ");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "SMS Text Message", "E-Mail" }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -738,7 +738,7 @@ public class TSSPGUI extends javax.swing.JFrame{
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 466, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buttonMakeAppointmentCancel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonMakeAppointmentMake))
@@ -748,7 +748,15 @@ public class TSSPGUI extends javax.swing.JFrame{
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(textMakeAppointmentTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(comboBoxMakeAppointmentMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboBoxMakeAppointmentDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -760,34 +768,43 @@ public class TSSPGUI extends javax.swing.JFrame{
                                                 .addComponent(comboBoxMakeAppointmentStartMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGap(190, 190, 190)
+                                                .addGap(124, 124, 124)
                                                 .addComponent(jLabel14))
                                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGap(108, 108, 108)
+                                                .addGap(30, 30, 30)
                                                 .addComponent(comboBoxMakeAppointmentEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(comboBoxMakeAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(textMakeAppointmentTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(jLabel13)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(comboBoxMakeAppointmentMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(comboBoxMakeAppointmentDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(comboBoxMakeAppointmentYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(comboBoxMakeAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboBoxMakeAppointmentYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(checkBoxMakeAppointmentRepeating)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(checkBoxMakeAppointmentMonday)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(checkBoxMakeAppointmentTuesday)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(checkBoxMakeAppointmentWednesday)))
-                                .addGap(6, 6, 6)
-                                .addComponent(checkBoxMakeAppointmentThursday)
+                                        .addGap(66, 66, 66)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addComponent(jLabel19)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE))
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addComponent(checkBoxMakeAppointment30Minutes)
+                                                .addGap(52, 52, 52)
+                                                .addComponent(checkBoxMakeAppointment1Hour)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(checkBoxMakeAppointment1Day))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(checkBoxMakeAppointmentRepeating)
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addComponent(checkBoxMakeAppointmentMonday)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(checkBoxMakeAppointmentTuesday)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(checkBoxMakeAppointmentWednesday)))
+                                        .addGap(6, 6, 6)
+                                        .addComponent(checkBoxMakeAppointmentThursday)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(checkBoxMakeAppointmentFriday)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -795,19 +812,6 @@ public class TSSPGUI extends javax.swing.JFrame{
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(checkBoxMakeAppointmentSunday)))))
                 .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(checkBoxMakeAppointment10Minutes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(checkBoxMakeAppointment30Minutes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkBoxMakeAppointment1Hour)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(checkBoxMakeAppointment1Day))
-                    .addComponent(jLabel19))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -821,20 +825,16 @@ public class TSSPGUI extends javax.swing.JFrame{
                     .addComponent(comboBoxMakeAppointmentDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxMakeAppointmentYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboBoxMakeAppointmentStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxMakeAppointmentStartMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboBoxMakeAppointmentEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxMakeAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(42, 42, 42)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxMakeAppointmentStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxMakeAppointmentStartMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxMakeAppointmentEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxMakeAppointmentEndMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
                 .addComponent(checkBoxMakeAppointmentRepeating)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -845,15 +845,16 @@ public class TSSPGUI extends javax.swing.JFrame{
                     .addComponent(checkBoxMakeAppointmentSaturday)
                     .addComponent(checkBoxMakeAppointmentSunday)
                     .addComponent(checkBoxMakeAppointmentMonday))
-                .addGap(53, 53, 53)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkBoxMakeAppointment10Minutes)
+                    .addComponent(jLabel19)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkBoxMakeAppointment30Minutes)
                     .addComponent(checkBoxMakeAppointment1Hour)
                     .addComponent(checkBoxMakeAppointment1Day))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonMakeAppointmentMake)
                     .addComponent(buttonMakeAppointmentCancel)))
@@ -1962,7 +1963,7 @@ public class TSSPGUI extends javax.swing.JFrame{
             String title = textMakeAppointmentTitle.getText();
             int month = comboBoxMakeAppointmentMonth.getSelectedIndex();
             int year = comboBoxMakeAppointmentYear.getSelectedIndex()+2016;
-            
+            LocalDate date = new LocalDate(year, month, day);
 //            int day = Integer.parseInt(textMakeAppointmentDay.getText());
 //            int sHour = Integer.parseInt(textMakeAppointmentStartHour.getText());
 //            int sMinute = Integer.parseInt(textMakeAppointmentStartMinute.getText());
@@ -2018,7 +2019,7 @@ public class TSSPGUI extends javax.swing.JFrame{
                   if(checkBoxMakeAppointmentSunday.isSelected()){
                     week[6] = true;
                 }
-          LocalDate date = new LocalDate(year, month, day);
+         
          
           int currentDayOfWeek = date.dayOfWeek().get()-1;
           for (int i= 0; i<=51; i++){
@@ -2033,6 +2034,69 @@ public class TSSPGUI extends javax.swing.JFrame{
           
             
         }//if statement bracket
+        
+        
+        LocalDate remDate = new LocalDate();
+        int remHour;
+        int remMinute;
+        String remTime;
+        String startTime = String.format("%02d:%02d",sHour, sMinute);
+        String endTime = String.format("%02d:%02d",eHour, eMinute);
+        
+        
+        
+        String query = "INSERT INTO reminders VALUES (?,?,?,?,?,?,?)";
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setString(1, user.getUsername());
+        stmt.setString(2,title);
+        stmt.setString(3,date.toString("yyyy-mm-dd"));
+        stmt.setString(4,startTime);
+        stmt.setString(5,endTime);
+  
+      
+        if(checkBoxMakeAppointment30Minutes.isSelected()){
+            remDate = date;
+            if(sMinute == 0){
+                remHour = sHour -1;
+                remMinute = 30;
+            }
+            else {
+                sMinute = 30;
+                remMinute =0;
+                remHour= sHour;
+            }
+            
+           stmt.setString(6, remDate.toString("yyyy-mm-dd"));
+           remTime = String.format("%02d:%02d",remHour, remMinute);
+           
+            
+        }
+         if(checkBoxMakeAppointment1Hour.isSelected()){
+            remMinute = sMinute;
+             remDate = date;
+             remHour= sHour -1;
+             stmt.setString(6, remDate.toString("yyyy-mm-dd"));
+             remTime = String.format("%02d:%02d",remHour, remMinute);
+      
+        }
+        
+        if (checkBoxMakeAppointment1Day.isSelected()){
+            remMinute = sMinute;
+            remHour = sHour;
+            remDate=date.minusDays(1);
+            stmt.setString(6, remDate.toString("yyyy-mm-dd"));
+            remTime = String.format("%02d:%02d",remHour, remMinute);
+         
+        }
+        
+       
+        
+        
+        
+        
+        
+        
+        
         else{
             Appointment app = new Appointment(user.getUsername(), title, day, month, year, sHour, sMinute, eHour, eMinute);
             user.makeAppt(conn, app);
@@ -2625,7 +2689,6 @@ public class TSSPGUI extends javax.swing.JFrame{
     private javax.swing.JDialog changeColorSchemeDialog;
     private javax.swing.JDialog changePasswordDialog;
     private javax.swing.JDialog changeUsernameDialog;
-    private javax.swing.JCheckBox checkBoxMakeAppointment10Minutes;
     private javax.swing.JCheckBox checkBoxMakeAppointment1Day;
     private javax.swing.JCheckBox checkBoxMakeAppointment1Hour;
     private javax.swing.JCheckBox checkBoxMakeAppointment30Minutes;
@@ -2649,6 +2712,7 @@ public class TSSPGUI extends javax.swing.JFrame{
     private javax.swing.JDialog editAppointmentDialog;
     private javax.swing.JDialog getClassDialog;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

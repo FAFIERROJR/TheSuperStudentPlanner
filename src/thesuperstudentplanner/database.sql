@@ -30,6 +30,23 @@ CREATE TABLE appointments
   CONSTRAINT fk1_appointments FOREIGN KEY (studentusername) REFERENCES students(studentusername)
   );
 
+CREATE TABLE reminders
+(
+ studentusername    VARCHAR(20)NOT NULL,
+ title              VARCHAR(20) NOT NULL,
+ startdate          DATE NOT NULL,
+ starttime          TIME NOT NULL,
+ endtime            TIME NOT NULL,
+ remdate            DATE NOT NULL,
+ remtime            TIME NOT NULL,
+ 
+ CONSTRAINT pk_reminders PRIMARY KEY (studentusername,title, startdate, starttime),
+ CONSTRAINT fk1_reminders FOREIGN KEY (studentusername) REFERENCES students(studentusername),
+ CONSTRAINT fk2_reminders FOREIGN KEY ( startdate, title,starttime, endtime) REFERENCES appointments
+            ("DATE",title,starttime, endtime)
+);
+
+
 
 INSERT INTO students 
     VALUES ('anncook','Ann','Cook', 'password'),
